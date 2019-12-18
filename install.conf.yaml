@@ -5,6 +5,11 @@
 - clean: ['~']
 
 - link:
+    ~/.anyconnect.xml: anyconnect.xml
     ~/.bash_aliases: bash_aliases
     ~/.bashrc: bashrc
+    ~/.condarc: condarc
+    #~/.gitattributes: gitattributes
+    ~/.latexmkrc: latexmkrc
     ~/.profile: profile
+    ~/.vimrc: vimrc

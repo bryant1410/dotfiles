@@ -116,7 +116,37 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -d ~/Android/Sdk ]; then
-  export ANDROID_SDK_PATH=~/Android/Sdk
+### Above are Ubuntu defaults, which I like.
+### Below it's what I have added.
+
+if which powerline-shell > /dev/null; then
+  function _update_ps1() {
+    PS1="$(powerline-shell $?)"
+  }
+
+  if [ "$TERM" != "linux" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+  fi
+fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+PYENV_PATH=~/.pyenv
+if [ -d $PYENV_PATH ]; then
+  export PATH=$PYENV_PATH/bin:$PATH
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+  #unset PYENV_VERSION
+fi
+
+ANDROID_SDK_PATH=~/Android/Sdk
+if [ -d $ANDROID_SDK_PATH ]; then
+  export ANDROID_SDK_PATH
   export PATH=$ANDROID_SDK_PATH/platform-tools:$ANDROID_SDK_PATH/tools/bin:$PATH
+fi
+
+CUDA_HOME=/usr/local/cuda
+if [ -d $CUDA_HOME ]; then
+  export CUDA_HOME
+  export PATH=$CUDA_HOME/bin:$PATH
 fi

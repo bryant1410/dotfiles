@@ -1,0 +1,22 @@
+*.bak
+*.cprof
+*.hprof
+*.iml
+*.log
+*.lprof
+*.orig
+*.pyc
+*.swp
+*~
+.~lock*
+.idea
+.ipynb_checkpoints
+.python-version
+.yarnclean
+local.properties
+node_modules
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.out # Though it could be an expected stdout file for a lab task test from the classes P2 or P3, Fing, UdelaR, Uruguay.

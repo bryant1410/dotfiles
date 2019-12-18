@@ -136,7 +136,7 @@ if [ -d $PYENV_PATH ]; then
   export PATH=$PYENV_PATH/bin:$PATH
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
-  #unset PYENV_VERSION
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
 ANDROID_SDK_PATH=~/Android/Sdk
@@ -150,3 +150,11 @@ if [ -d $CUDA_HOME ]; then
   export CUDA_HOME
   export PATH=$CUDA_HOME/bin:$PATH
 fi
+
+GOPATH=~/.gocode
+if [ -d $GOPATH ]; then
+  export GOPATH
+  export PATH=$PATH:$GOPATH/bin
+fi
+
+# TODO: is JAVA_HOME necessary?

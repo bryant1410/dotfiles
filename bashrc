@@ -117,6 +117,18 @@ if ! shopt -oq posix; then
 fi
 
 ### Above are Ubuntu defaults, which I like.
+### Moved from ~/.profile Ubuntu defaults:
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 ### Below it's what I have added.
 
 if which powerline-shell > /dev/null; then
@@ -155,6 +167,12 @@ GOPATH=~/.gocode
 if [ -d $GOPATH ]; then
   export GOPATH
   export PATH=$PATH:$GOPATH/bin
+fi
+
+DIFF_SO_FANCY_STUB_PATH=~/.local/bin/diff-so-fancy
+rm -f "$DIFF_SO_FANCY_STUB_PATH"
+if ! which diff-so-fancy; then  # Otherwise, the configured git diff and show pager will fail.
+  ln -s $(which cat) "$DIFF_SO_FANCY_STUB_PATH"
 fi
 
 # TODO: is JAVA_HOME necessary?

@@ -4,13 +4,20 @@
 
 - clean: ['~']
 
+- create:
+    - ~/.config/git
+    - ~/.local/bin
+
 - link:
     ~/.anyconnect.xml: anyconnect.xml
     ~/.bash_aliases: bash_aliases
     ~/.bashrc: bashrc
+    ~/.config/git/config: gitconfig
     ~/.condarc: condarc
-    #~/.gitattributes: gitattributes
-    #~/.gitignore_global: gitignore_global
+    ~/.gitignore_global: gitignore_global
     ~/.latexmkrc: latexmkrc
     ~/.profile: profile
     ~/.vimrc: vimrc
+
+- shell:
+    - [touch ~/.gitconfig]

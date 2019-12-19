@@ -20,3 +20,8 @@ cd repos
 git clone https://github.com/bryant1410/dotfiles # git@?
 cd dotfiles
 ./install
+```
+
+## Some comments
+
+I save the git config in a 2nd user-specific path, so I can override stuff in the local machine, such as the email. 

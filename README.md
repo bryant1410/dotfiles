@@ -17,7 +17,7 @@ First check the existing dotfiles in the system home directory, and delete them 
 ```bash
 mkdir repos
 cd repos
-git clone https://github.com/bryant1410/dotfiles # git@?
+git clone https://github.com/bryant1410/dotfiles
 cd dotfiles
 ./install
 ```

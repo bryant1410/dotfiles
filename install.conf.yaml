@@ -16,6 +16,7 @@
     ~/.condarc: condarc
     ~/.gitignore_global: gitignore_global
     ~/.latexmkrc: latexmkrc
+    ~/.npmrc: npmrc
     ~/.profile: profile
     ~/.vimrc: vimrc
 

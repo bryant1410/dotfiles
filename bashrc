@@ -129,26 +129,46 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-### Below it's what I have added.
+### Below it's what I've added.
 
-if which powerline-shell > /dev/null; then
+GOPATH=~/.gocode
+if [ -d $GOPATH ]; then
+  export GOPATH
+  export PATH=$PATH:$GOPATH/bin
+fi
+
+if command -v powerline-go > /dev/null; then
+  function _update_ps1() {
+    PS1="$(powerline-go -error $?)"
+  }
+
+  if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+  fi
+elif command -v powerline-shell > /dev/null; then
   function _update_ps1() {
     PS1="$(powerline-shell $?)"
   }
 
-  if [ "$TERM" != "linux" ]; then
+  if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
   fi
 fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 PYENV_PATH=~/.pyenv
 if [ -d $PYENV_PATH ]; then
   export PATH=$PYENV_PATH/bin:$PATH
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
+
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+  # So pipenv accepts to operate (e.g., install) within a pyenv loaded virtualenv.
+  export PIPENV_IGNORE_VIRTUALENVS=0
+
+  # See https://github.com/pyenv/pyenv/issues/688
+  export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+
 fi
 
 ANDROID_SDK_PATH=~/Android/Sdk
@@ -163,16 +183,35 @@ if [ -d $CUDA_HOME ]; then
   export PATH=$CUDA_HOME/bin:$PATH
 fi
 
-GOPATH=~/.gocode
-if [ -d $GOPATH ]; then
-  export GOPATH
-  export PATH=$PATH:$GOPATH/bin
-fi
-
 DIFF_SO_FANCY_STUB_PATH=~/.local/bin/diff-so-fancy
 rm -f "$DIFF_SO_FANCY_STUB_PATH"
-if ! which diff-so-fancy; then  # Otherwise, the configured git diff and show pager will fail.
+if ! command -v diff-so-fancy > /dev/null; then  # Otherwise, the configured git diff and show pager will fail.
   ln -s $(which cat) "$DIFF_SO_FANCY_STUB_PATH"
 fi
 
+export KAGGLE_USERNAME=bryant1410
+
+RVM_PATH=~/.rvm
+if [ -d $RVM_PATH ]; then
+  source "$RVM_PATH/scripts/rvm" # Load RVM into a shell session *as a function*
+  export PATH="$PATH:$RVM_PATH/bin"
+fi
+
+NVM_PATH=$HOME/.nvm
+if [ -d $NVM_PATH ]; then
+  export NVM_PATH
+  . "$NVM_PATH/nvm.sh"
+  . "$NVM_PATH/bash_completion"
+fi
+
+NPM_GLOBAL_PATH=~/.npm_global
+if [ -d $NPM_GLOBAL_PATH ]; then
+  export PATH=$NPM_GLOBAL_PATH/bin:$PATH
+fi
+
 # TODO: is JAVA_HOME necessary?
+
+BASHRC_LOCAL=~/.bashrc.local
+if [ -f $BASHRC_LOCAL ]; then
+  . $BASHRC_LOCAL
+fi

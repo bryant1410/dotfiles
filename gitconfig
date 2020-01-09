@@ -5,13 +5,12 @@
 [credential]
 	helper = cache
 [core]
+    autocrlf = input
 	editor = vim
 	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	tool = meld
-[pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52

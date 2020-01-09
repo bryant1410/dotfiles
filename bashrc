@@ -203,8 +203,6 @@ if [ -d $NPM_GLOBAL_PATH ]; then
   export PATH=$NPM_GLOBAL_PATH/bin:$PATH
 fi
 
-# TODO: is JAVA_HOME necessary?
-
 BASHRC_LOCAL=~/.bashrc.local
 if [ -f $BASHRC_LOCAL ]; then
   . $BASHRC_LOCAL

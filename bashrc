@@ -183,12 +183,6 @@ if [ -d $CUDA_HOME ]; then
   export PATH=$CUDA_HOME/bin:$PATH
 fi
 
-DIFF_SO_FANCY_STUB_PATH=~/.local/bin/diff-so-fancy
-rm -f "$DIFF_SO_FANCY_STUB_PATH"
-if ! command -v diff-so-fancy > /dev/null; then  # Otherwise, the configured git diff and show pager will fail.
-  ln -s $(which cat) "$DIFF_SO_FANCY_STUB_PATH"
-fi
-
 export KAGGLE_USERNAME=bryant1410
 
 RVM_PATH=~/.rvm

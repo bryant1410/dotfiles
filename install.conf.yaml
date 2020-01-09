@@ -21,4 +21,5 @@
     ~/.vimrc: vimrc
 
 - shell:
-    - [touch ~/.gitconfig]
+    - "touch ~/.gitconfig"
+    - "DSF_PATH=~/repos/diff-so-fancy; if [ -d $DSF_PATH ]; then cd $DSF_PATH; git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi"

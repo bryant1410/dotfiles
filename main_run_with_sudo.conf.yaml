@@ -14,11 +14,6 @@
 
 - shell:
     - ['if ! grep docker /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && UBUNTU_VERSION=$(lsb_release -cs) && add-apt-repository --no-update "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${UBUNTU_VERSION/eoan/disco} stable"; fi', Adding the Docker APT repository]
-    - [DC_PATH=~/.local/bin/docker-compose && curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o "$DC_PATH" && chmod +x "$DC_PATH", Installing Docker Compose]
-    - ['cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -', Installing Dropbox]
-    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/keeweb/keeweb/releases/download/v1.12.3/KeeWeb-1.12.3.linux.x64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing KeeWeb]
-    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
-    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/KryDos/todoist-linux/releases/download/1.19/Todoist_1.19.0_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Todoist]  # Can't set release to latest because the download asset has the version name in it.
 
 - apt-get:
     - aptitude  # To check the high-level installed packages.
@@ -37,7 +32,7 @@
     - docker-ce-cli
     - e2fsprogs
     - findutils
-    - firefox-locale-en
+    - firefox
     - fonts-indic
     - git
     - gparted
@@ -64,18 +59,13 @@
     - language-pack-gnome-en-base
     - libdebconfclient0
     - libpulse-dev
-    - libreoffice-help-common
-    - libreoffice-help-en-us
-    - linux-generic
-    - linux-headers-generic
-    - linux-signed-generic
+    - libreoffice
     - locales
     - mlocate
     - mokutil
     - mythes-en-us
     - ncurses-base
     - ncurses-bin
-    - nvidia-driver-435
     - os-prober
     - pciutils
     - poppler-data
@@ -84,8 +74,6 @@
     - shim-signed
     - telegram-desktop
     - texlive*
-    - thunderbird-locale-en
-    - thunderbird-locale-en-us
     - tmux
     - tree
     - udev
@@ -97,6 +85,11 @@
     - xclip
 
 - shell:
+    # Can't set release to latest because the download asset has the version name in it.
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/keeweb/keeweb/releases/download/v1.12.3/KeeWeb-1.12.3.linux.x64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing KeeWeb]
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
+    # Can't set release to latest because the download asset has the version name in it.
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/KryDos/todoist-linux/releases/download/1.19/Todoist_1.19.0_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Todoist]
     - [snap install --classic android-studio, Installing Android Studio]
     - [snap install --classic clion, Installing CLion]
     - [snap install --classic goland, Installing GoLand]

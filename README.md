@@ -6,34 +6,29 @@ It uses [dotbot](https://github.com/anishathalye/dotbot).
 
 ## Installation
 
-First check the existing dotfiles in the system home directory, and delete them manually. Then:.
+First check the existing dotfiles in the system home directory and delete them. Then:
 
 ```bash
-./install
-```
-
-## Installation in a new computer or empty user, from the home directory run:
-
-```bash
-mkdir repos
-cd repos
-
 git clone https://github.com/bryant1410/dotfiles
 cd dotfiles
 
 ./install
 ```
 
-## Install the apt and snap packages
+### Main Computer
+
+In a computer I actively use (a "main" one), has Ubuntu and I have sudo access, also run:
 
 ```bash
 git submodule update --init --recursive dotbot-apt-get
-sudo ./install -p dotbot-apt-get/aptget.py -c apt.conf.yaml
+sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
+./install -c main_run_without_sudo.conf.yaml
 ```
 
-TODO: move non-sudo stuff of apt
 TODO: pyenv and/or miniconda
 TODO: prey, [globus](https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz)
+
+#### Post-installation Steps
 
 Run the following to finish the Dropbox installation:
 
@@ -41,6 +36,16 @@ Run the following to finish the Dropbox installation:
 ~/.dropbox-dist/dropboxd
 ```
 
-## Some comments
+#### Docker
 
-I save the git config in a 2nd user-specific path, so I can override stuff in the local machine, such as the email. 
+Run the following to finish the Docker installation:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Then log out and log back in.
+
+## About the Git Configuration
+
+I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

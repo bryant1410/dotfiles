@@ -27,6 +27,7 @@
     - ["DSF_PATH=~/repos/diff-so-fancy && if [ -d $DSF_PATH ]; then cd $DSF_PATH && git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
     - [pip install --user pipenv, Installing Pipenv]
+    - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
 
 - link:
     ~/.local/bin/diff-so-fancy: ~/repos/diff-so-fancy/diff-so-fancy

@@ -1,9 +1,16 @@
+# Dependencies to install Docker.
 - apt-get:
     - apt-transport-https
     - ca-certificates
     - curl
     - gnupg-agent
     - software-properties-common
+
+# Todoist dependencies.
+- apt-get:
+    - gconf-service
+    - gconf2
+    - libappindicator1
 
 - shell:
     - ['if ! grep docker /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && UBUNTU_VERSION=$(lsb_release -cs) && add-apt-repository --no-update "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${UBUNTU_VERSION/eoan/disco} stable"; fi', Installing Docker]

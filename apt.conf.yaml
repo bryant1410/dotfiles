@@ -78,12 +78,6 @@
     - thunderbird-locale-en-us
     - tmux
     - tree
-    - ubuntu-desktop
-    - ubuntu-desktop-minimal
-    - ubuntu-minimal
-    - ubuntu-restricted-addons
-    - ubuntu-standard
-    - ubuntu-wallpapers
     - udev
     - usbutils
     - vim
@@ -91,3 +85,20 @@
     - wbritish
     - wireshark-qt
     - xclip
+
+- shell:
+    - [snap install --classic android-studio, Installing Android Studio]
+    - [snap install --classic clion, Installing CLion]
+    - [snap install --classic goland, Installing GoLand]
+    - [snap install --classic hub, Installing hub]
+    - [snap install --classic intellij-idea-ultimate, Installing IntelliJ IDEA Ultimate]
+    - [snap install musescore, Installing Musescore]
+    - [snap install pdftk, Installing pdftk]
+    - [snap install --classic pycharm-professional, Installing PyCharm Professional]
+    - [snap install --classic rubymine, Installing RubyMine]
+    - [snap install --classic skype, Installing Skype]
+    - [snap install --classic slack, Installing Slack]
+    - [snap install spotify, Installing Spotify]
+    - [snap install --classic sublime-text, Installing Sublime]
+    - [snap install --classic vscode, Installing VSCode]
+    - [snap install --classic webstorm, Installing WebStorm]

@@ -24,14 +24,14 @@ cd dotfiles
 ./install
 ```
 
-## Install the apt packages
+## Install the apt and snap packages
 
 ```bash
 git submodule update --init --recursive dotbot-apt-get
 sudo ./install -p dotbot-apt-get/aptget.py -c apt.conf.yaml
 ```
 
-Run the following to finish Dropbox installation:
+Run the following to finish the Dropbox installation:
 
 ```bash
 ~/.dropbox-dist/dropboxd

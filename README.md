@@ -60,7 +60,3 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 
-
-## TODO
-
-* Another prompt and/or shell (zsh, fish?)

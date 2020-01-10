@@ -36,15 +36,13 @@ Run the following to finish the Dropbox installation:
 ~/.dropbox-dist/dropboxd
 ```
 
-#### Docker
-
 Run the following to finish the Docker installation:
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-Then log out and log back in.
+Then log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 

@@ -4,6 +4,11 @@ These are my dotfiles.
 
 It uses [dotbot](https://github.com/anishathalye/dotbot).
 
+## Prerequisites
+
+* Git.
+* Python.
+
 ## Installation
 
 First check the existing dotfiles in the system home directory and delete them. Then:
@@ -17,7 +22,7 @@ cd dotfiles
 
 ### Main Computer
 
-In a computer I actively use (a "main" one), has Ubuntu and I have sudo access, also run:
+These are additional steps for a computer I actively use (a "main" one), has Ubuntu and I have sudo access. It requires Python 3 or Python 2 with the package `enum34` installed. Run:
 
 ```bash
 git submodule update --init --recursive dotbot-apt-get

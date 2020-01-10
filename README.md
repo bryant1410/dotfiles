@@ -31,6 +31,8 @@ git submodule update --init --recursive dotbot-apt-get
 sudo ./install -p dotbot-apt-get/aptget.py -c apt.conf.yaml
 ```
 
+TODO: docker-compose, globus
+
 Run the following to finish the Dropbox installation:
 
 ```bash

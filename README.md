@@ -32,7 +32,7 @@ sudo ./install -p dotbot-apt-get/aptget.py -c apt.conf.yaml
 ```
 
 TODO: move non-sudo stuff of apt
-TODO: globus
+TODO: prey, [globus](https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz)
 
 Run the following to finish the Dropbox installation:
 

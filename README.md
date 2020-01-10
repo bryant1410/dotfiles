@@ -24,6 +24,19 @@ cd dotfiles
 ./install
 ```
 
+## Install the apt packages
+
+```bash
+git submodule update --init --recursive dotbot-apt-get
+sudo ./install -p dotbot-apt-get/aptget.py -c apt.conf.yaml
+```
+
+Run the following to finish Dropbox installation:
+
+```bash
+~/.dropbox-dist/dropboxd
+```
+
 ## Some comments
 
 I save the git config in a 2nd user-specific path, so I can override stuff in the local machine, such as the email. 

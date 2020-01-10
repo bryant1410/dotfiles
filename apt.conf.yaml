@@ -1,0 +1,93 @@
+- apt-get:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- shell:
+    - ['if ! grep docker /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && UBUNTU_VERSION=$(lsb_release -cs) && add-apt-repository --no-update "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${UBUNTU_VERSION/eoan/disco} stable"; fi', Installing Docker]
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
+    - ['cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -', Installing Dropbox]
+
+- apt-get:
+    - aptitude  # To check the high-level installed packages.
+    - aspell-en
+    - aspell-es
+    - base-passwd
+    - bridge-utils
+    - calibre
+    - console-setup
+    - containerd.io
+    - context
+    - cpu-checker
+    - dash
+    - diffutils
+    - docker-ce
+    - docker-ce-cli
+    - e2fsprogs
+    - findutils
+    - firefox-locale-en
+    - fonts-indic
+    - git
+    - gparted
+    - grep
+    - grub-common
+    - grub-efi-amd64-signed
+    - grub-gfxpayload-lists
+    - grub-pc
+    - grub-pc-bin
+    - grub2-common
+    - gstreamer1.0-pocketsphinx
+    - gstreamer1.0-qt5
+    - guake
+    - gzip
+    - hostname
+    - htop
+    - hunspell-en-us
+    - hyphen-en-us
+    - init
+    - keyboard-configuration
+    - language-pack-en
+    - language-pack-en-base
+    - language-pack-gnome-en
+    - language-pack-gnome-en-base
+    - libdebconfclient0
+    - libpulse-dev
+    - libreoffice-help-common
+    - libreoffice-help-en-us
+    - linux-generic
+    - linux-headers-generic
+    - linux-signed-generic
+    - locales
+    - mlocate
+    - mokutil
+    - mythes-en-us
+    - ncurses-base
+    - ncurses-bin
+    - nvidia-driver-435
+    - os-prober
+    - pciutils
+    - poppler-data
+    - python3-gpg
+    - qemu-kvm
+    - shim-signed
+    - telegram-desktop
+    - texlive*
+    - thunderbird-locale-en
+    - thunderbird-locale-en-us
+    - tmux
+    - tree
+    - ubuntu-desktop
+    - ubuntu-desktop-minimal
+    - ubuntu-minimal
+    - ubuntu-restricted-addons
+    - ubuntu-standard
+    - ubuntu-wallpapers
+    - udev
+    - usbutils
+    - vim
+    - wamerican
+    - wbritish
+    - wireshark-qt
+    - xclip

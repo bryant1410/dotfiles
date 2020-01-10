@@ -23,4 +23,4 @@
 
 - shell:
     - [touch ~/.gitconfig, Creating the local git config file]
-    - ["DSF_PATH=~/repos/diff-so-fancy; if [ -d $DSF_PATH ]; then cd $DSF_PATH; git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]
+    - ["DSF_PATH=~/repos/diff-so-fancy && if [ -d $DSF_PATH ]; then cd $DSF_PATH && git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]

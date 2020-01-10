@@ -46,11 +46,11 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
     ~/.dropbox-dist/dropboxd
     ```
 
-3. Set "Fira Code Regular" as the font for the system Terminal and Guake.
+3. Set "Fira Code Regular" as the font for the system Terminal, Sublime, VS Code, IntelliJ-based programs, and Guake. Enable the font ligatures wherever possible.
 
 4. Add Guake to the list of Startup Applications.
 
-5. (Optional) Install and set up Prey:
+5. Install and set up Prey:
 
     ```bash
     TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.2/prey_1.9.2_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"

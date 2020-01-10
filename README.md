@@ -6,8 +6,9 @@ It uses [dotbot](https://github.com/anishathalye/dotbot).
 
 ## Prerequisites
 
-* Git.
-* Python.
+* Git
+* Python
+* Wget
 
 ## Installation
 
@@ -30,25 +31,28 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
 ./install -c main_run_without_sudo.conf.yaml
 ```
 
-TODO: pyenv and/or miniconda
-TODO: prey, [globus](https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz)
-
 #### Post-installation Steps
 
-Run the following to finish the Dropbox installation:
+1. Run the following to finish the Docker installation:
 
-```bash
-~/.dropbox-dist/dropboxd
-```
+    ```bash
+    sudo usermod -aG docker $USER
+    ```
 
-Run the following to finish the Docker installation:
+2. Run the following to finish the Dropbox installation:
 
-```bash
-sudo usermod -aG docker $USER
-```
+    ```bash
+    ~/.dropbox-dist/dropboxd
+    ```
 
-Then log out and log back in for Docker to work without sudo.
+3. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 
+
+## TODO
+
+* pyenv and/or miniconda
+* prey post-installation steps
+* Another prompt and/or shell (zsh, fish?)

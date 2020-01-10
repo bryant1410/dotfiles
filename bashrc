@@ -131,10 +131,12 @@ fi
 
 ### Below it's what I've added.
 
-GOPATH=~/.gocode
-if [ -d $GOPATH ]; then
+GOROOT=~/.goroot
+GOPATH=~/go
+if [ -d $GOROOT ]; then
+  export GOROOT
   export GOPATH
-  export PATH=$PATH:$GOPATH/bin
+  export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 fi
 
 if command -v powerline-go > /dev/null; then

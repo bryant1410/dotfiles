@@ -1,3 +1,6 @@
+- shell:
+    - [add-apt-repository universe, Enabling the Universe APT repository]
+
 # Dependencies to install Docker repository and package.
 - apt-get:
     - apt-transport-https
@@ -27,6 +30,7 @@
     - e2fsprogs
     - findutils
     - firefox
+    - fonts-firacode
     - fonts-indic
     - git
     - gparted

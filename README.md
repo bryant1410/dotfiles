@@ -46,16 +46,18 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
     ~/.dropbox-dist/dropboxd
     ```
 
-3. Add Guake to the list of Startup Applications.
+3. Set "Fira Code Regular" as the font for the system Terminal and Guake.
 
-4. (Optional) Install and set up Prey:
+4. Add Guake to the list of Startup Applications.
+
+5. (Optional) Install and set up Prey:
 
     ```bash
     TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.2/prey_1.9.2_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
     sudo apt --fix-broken -y install  # Install Prey dependencies.
     ```
 
-5. Log out and log back in for Docker to work without sudo.
+6. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 

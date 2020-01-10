@@ -79,17 +79,13 @@
     - xclip
 
 - shell:
-    # Can't set release to latest because the download asset has the version name in it.
+    # Can't set the release to latest for some because the download asset has the version name in it.
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/keeweb/keeweb/releases/download/v1.12.3/KeeWeb-1.12.3.linux.x64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing KeeWeb]
-    - [apt -fy install, Installing KeeWeb dependencies]
+    - [apt --fix-broken -y install, Installing KeeWeb dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
-    - [apt -fy install, Installing Google Chrome dependencies]
-    # Can't set release to latest because the download asset has the version name in it.
-    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.2/prey_1.9.2_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Prey]
-    - [apt -fy install, Installing Prey dependencies]
-    # Can't set release to latest because the download asset has the version name in it.
+    - [apt --fix-broken -y install, Installing Google Chrome dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/KryDos/todoist-linux/releases/download/1.19/Todoist_1.19.0_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Todoist]
-    - [apt -fy install, Installing Todoist dependencies]
+    - [apt --fix-broken -y install, Installing Todoist dependencies]
 
 - shell:
     - [snap install --classic android-studio, Installing Android Studio]

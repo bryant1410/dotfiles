@@ -7,7 +7,7 @@ It uses [dotbot](https://github.com/anishathalye/dotbot).
 ## Prerequisites
 
 * Git
-* Python
+* Python and Pip
 * Wget
 
 ## Installation
@@ -45,6 +45,13 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
     ~/.dropbox-dist/dropboxd
     ```
 
+3. (Optional) Install and set up Prey:
+
+    ```bash
+    TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.2/prey_1.9.2_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
+    sudo apt --fix-broken -y install  # Install Prey dependencies.
+    ```
+
 3. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
@@ -54,5 +61,4 @@ I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I
 ## TODO
 
 * pyenv and/or miniconda
-* prey post-installation steps
 * Another prompt and/or shell (zsh, fish?)

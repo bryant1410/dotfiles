@@ -170,7 +170,6 @@ if [ -d $PYENV_PATH ]; then
 
   # See https://github.com/pyenv/pyenv/issues/688
   export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
-
 fi
 
 ANDROID_SDK_PATH=~/Android/Sdk

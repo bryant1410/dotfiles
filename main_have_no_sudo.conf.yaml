@@ -1,0 +1,10 @@
+# This isn't done cause I don't use it, but I can do LinuxBrew with something like:
+
+#linuxbrew="$HOME/.linuxbrew"
+#export PATH="$linuxbrew/bin:$linuxbrew/sbin:$PATH"
+#export MANPATH="$linuxbrew/share/man:$MANPATH"
+#export INFOPATH="$linuxbrew/share/info:$INFOPATH"
+#export CFLAGS="-I$linuxbrew/include"
+#export CPPFLAGS="-I$linuxbrew/include"
+#export LDFLAGS="-L$linuxbrew/lib"
+#export LD_LIBRARY_PATH="$linuxbrew/lib:$LD_LIBRARY_PATH"

@@ -28,7 +28,8 @@
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
     - ["GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl https://dl.google.com/go/go1.13.6.linux-amd64.tar.gz | tar -xz -C ~; mv ~/go $GOROOT; fi", Installing Go]
     - [pip install --user pipenv, Installing Pipenv]
-    - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && go get -u github.com/justjanne/powerline-go, Installing powerline-go]
+    # powerline-go v1.15.0 shows the venv segment twice.
+    - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go@v1.13.0, Installing powerline-go]
     - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
 
 - link:

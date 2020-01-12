@@ -141,7 +141,7 @@ fi
 
 if command -v powerline-go > /dev/null; then
   function _update_ps1() {
-    PS1="$(powerline-go -error $?)"
+    PS1="$(powerline-go -newline -error $?)"
   }
 
   if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then

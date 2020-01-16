@@ -68,6 +68,7 @@
     - pciutils
     - poppler-data
     - python3-gpg
+    - python3-pip
     - qemu-kvm
     - shim-signed
     - telegram-desktop

@@ -9,7 +9,6 @@
     - ~/.local/bin
 
 - link:
-    ~/.anyconnect.xml: anyconnect.xml
     ~/.bash_aliases: bash_aliases
     ~/.bashrc: bashrc
     ~/.config/git/config: gitconfig

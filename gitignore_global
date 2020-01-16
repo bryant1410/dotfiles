@@ -14,7 +14,6 @@
 *.out # Though it could be an expected stdout file for a lab task test from the classes P2 or P3, Fing, UdelaR, Uruguay.
 *.pstat
 *.py[cod]
-*.pyc
 *.so
 *.swp
 *.tar.gz

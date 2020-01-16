@@ -27,6 +27,7 @@
     - diffutils
     - docker-ce
     - docker-ce-cli
+    - dos2unix
     - e2fsprogs
     - findutils
     - firefox
@@ -64,6 +65,7 @@
     - mythes-en-us
     - ncurses-base
     - ncurses-bin
+    - network-manager-openconnect-gnome
     - os-prober
     - pciutils
     - poppler-data

@@ -84,6 +84,7 @@
     - python3-gpg
     - python3-pip
     - qemu-kvm
+    - shellcheck
     - shim-signed
     - telegram-desktop
     - texlive*

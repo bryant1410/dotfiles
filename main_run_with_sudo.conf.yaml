@@ -18,6 +18,7 @@
     - aspell-es
     - base-passwd
     - bridge-utils
+    - build-essential
     - calibre
     - console-setup
     - containerd.io
@@ -56,10 +57,21 @@
     - language-pack-en-base
     - language-pack-gnome-en
     - language-pack-gnome-en-base
+    - libbz2-dev
     - libdebconfclient0
+    - libffi-dev
+    - liblzma-dev
+    - libncurses5-dev
     - libpulse-dev
+    - libreadline-dev
     - libreoffice
+    - libsqlite3-dev
+    - libssl-dev
+    - libxml2-dev
+    - libxmlsec1-dev
+    - llvm
     - locales
+    - make
     - mlocate
     - mokutil
     - mythes-en-us
@@ -75,6 +87,7 @@
     - shim-signed
     - telegram-desktop
     - texlive*
+    - tk-dev
     - tmux
     - tree
     - udev
@@ -84,6 +97,8 @@
     - wbritish
     - wireshark-qt
     - xclip
+    - xz-utils
+    - zlib1g-dev
 
 - shell:
     # Can't set the release to latest for some because the download asset has the version name in it.

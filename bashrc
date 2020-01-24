@@ -195,7 +195,8 @@ fi
 NVM_PATH=$HOME/.nvm
 if [ -d $NVM_PATH ]; then
   export NVM_PATH
-  . "$NVM_PATH/nvm.sh"
+  # Use --no-use so bash starts faster.
+  . "$NVM_PATH/nvm.sh" --no-use
   . "$NVM_PATH/bash_completion"
 fi
 

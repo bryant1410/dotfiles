@@ -83,6 +83,7 @@
     - poppler-data
     - python3-gpg
     - python3-pip
+    = python3-venv
     - qemu-kvm
     - shellcheck
     - shim-signed

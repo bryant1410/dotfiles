@@ -27,7 +27,7 @@
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
     - ["GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl https://dl.google.com/go/go1.13.6.linux-amd64.tar.gz | tar -xz -C ~; mv ~/go $GOROOT; fi", Installing Go]
-    - [pip install --user pipenv, Installing Pipenv]
+    - [pip3 install --user poetry, Installing Poetry]
     # powerline-go v1.15.0 shows the venv segment twice.
     - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go@v1.13.0, Installing powerline-go]
     - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]

@@ -1,3 +1,4 @@
 - shell:
     - [DC_PATH=~/.local/bin/docker-compose && curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o "$DC_PATH" && chmod +x "$DC_PATH", Installing Docker Compose]
     - ['cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.$(uname -m)" | tar xzf -', Installing Dropbox]
+    - [location=~/.local/share/fonts && mkdir -p "$location" && wget -P "$location" 'https://raw.githubusercontent.com/seanghay/JetBrainsMono-Powerline/master/JetBrains%20Mono%20Regular%20for%20Powerline.ttf' && fc-cache -fv, Installing JetBrains Mono Regular for Powerline font]

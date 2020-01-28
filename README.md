@@ -46,7 +46,7 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
     ~/.dropbox-dist/dropboxd
     ```
 
-3. Set "JetBrains Mono Regular for Powerline" as the font for the system Terminal, Sublime, VS Code, IntelliJ-based programs, and Guake. Enable the font ligatures wherever possible.
+3. Set "JetBrains Mono Regular" as the font for the system Terminal, Sublime, VS Code, IntelliJ-based programs, and Guake. Enable the font ligatures wherever possible.
 
 4. Add Guake to the list of Startup Applications.
 

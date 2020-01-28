@@ -20,6 +20,7 @@
 *.zip
 *~
 .DS_Store
+.eggs/
 .idea/
 .ipynb_checkpoints/
 .python-version

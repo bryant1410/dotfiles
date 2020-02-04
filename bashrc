@@ -209,3 +209,5 @@ BASHRC_LOCAL=~/.bashrc.local
 if [ -f $BASHRC_LOCAL ]; then
   . $BASHRC_LOCAL
 fi
+
+export DOCKER_BUILDKIT=1

@@ -20,6 +20,7 @@
     - bridge-utils
     - build-essential
     - calibre
+    - cmake
     - console-setup
     - containerd.io
     - context

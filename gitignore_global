@@ -3,6 +3,7 @@
 *.bak
 *.class
 *.cprof
+*.dat
 *.egg-info/
 *.fdb_latexmk
 *.fls

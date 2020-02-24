@@ -26,8 +26,7 @@
     - ["GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz | tar -xz -C ~; mv ~/go $GOROOT; fi", Installing Go]
 
 - shell:
-    # For some reason Beaker installation fails with a tag.
-    - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/allenai/beaker@64c744a, Installing Beaker]
+    - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && go get -u github.com/allenai/beaker/cmd/beaker, Installing Beaker]
     - ["DSF_PATH=~/repos/diff-so-fancy && if [ -d $DSF_PATH ]; then cd $DSF_PATH && git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]

@@ -172,6 +172,11 @@ if [ -d $PYENV_PATH ]; then
   export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 fi
 
+POETRY_PATH=~/.poetry
+if [ -d $POETRY_PATH ]; then
+  export PATH=$POETRY_PATH/bin:$PATH
+fi
+
 ANDROID_SDK_PATH=~/Android/Sdk
 if [ -d $ANDROID_SDK_PATH ]; then
   export ANDROID_SDK_PATH

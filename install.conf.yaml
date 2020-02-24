@@ -30,7 +30,9 @@
     - ["DSF_PATH=~/repos/diff-so-fancy && if [ -d $DSF_PATH ]; then cd $DSF_PATH && git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
-    - [pip3 install --user poetry, Installing Poetry]
+    # Prefer installing poetry without Pip, because some computers don't have a system-wide pip.
+    # Also, I prefer to run this fork, otherwise I can't deactivate the option to modify the PATH in ~/.profile.
+    - ["curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/134c457cb8868b3d490809ef0c89999b34ee68d0/get-poetry.py' | python - --no-modify-path", Installing Poetry]
     # powerline-go v1.15.0 shows the venv segment twice.
     - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go@6edd83a, Installing powerline-go]
     - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]

@@ -189,6 +189,8 @@ if [ -d $CUDA_HOME ]; then
   export PATH=$CUDA_HOME/bin:$PATH
 fi
 
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+
 export KAGGLE_USERNAME=bryant1410
 
 RVM_PATH=~/.rvm

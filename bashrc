@@ -212,9 +212,15 @@ if [ -d $NPM_GLOBAL_PATH ]; then
   export PATH=$NPM_GLOBAL_PATH/bin:$PATH
 fi
 
+export DOCKER_BUILDKIT=1
+
+SDKMAN_DIR="/home/sacastro/.sdkman"
+if [ -d $SDKMAN_DIR ]; then
+  export SDKMAN_DIR
+  [[ -s "/home/sacastro/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sacastro/.sdkman/bin/sdkman-init.sh"
+fi
+
 BASHRC_LOCAL=~/.bashrc.local
 if [ -f $BASHRC_LOCAL ]; then
   . $BASHRC_LOCAL
 fi
-
-export DOCKER_BUILDKIT=1

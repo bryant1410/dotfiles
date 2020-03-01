@@ -37,6 +37,7 @@
     # powerline-go v1.15.0 shows the venv segment twice.
     - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go@6edd83a, Installing powerline-go]
     - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
+    - ["curl -s 'https://get.sdkman.io' | bash", Installing SDKMAN!]
 
 - link:
     ~/.local/bin/diff-so-fancy: ~/repos/diff-so-fancy/diff-so-fancy

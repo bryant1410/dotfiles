@@ -8,7 +8,6 @@
 *.egg-info/
 *.fdb_latexmk
 *.fls
-*.gradle
 *.hprof
 *.iml
 *.log
@@ -25,6 +24,7 @@
 *~
 .DS_Store
 .eggs/
+.gradle/
 .idea/
 .ipynb_checkpoints/
 .python-version

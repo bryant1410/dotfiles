@@ -1,4 +1,5 @@
 *$py.class
+*.[jwe]ar
 *.aux
 *.bak
 *.class
@@ -7,6 +8,7 @@
 *.egg-info/
 *.fdb_latexmk
 *.fls
+*.gradle
 *.hprof
 *.iml
 *.log
@@ -28,8 +30,8 @@
 .python-version
 .yarnclean
 .~lock*
+Thumbs.db
 __pycache__/
 local.properties
 node_modules/
 slurm-*.out
-Thumbs.db

@@ -48,16 +48,18 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
 
 3. Set "JetBrains Mono Regular" as the font for the system Terminal, Sublime, VS Code, IntelliJ-based programs, and Guake. Enable the font ligatures wherever possible.
 
-4. Add Guake to the list of Startup Applications.
+4. Enable settings sync in the JetBrains IDEs.
 
-5. Install and set up Prey:
+5. Add Guake to the list of Startup Applications.
+
+6. Install and set up Prey:
 
     ```bash
     TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.2/prey_1.9.2_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
     sudo apt --fix-broken -y install  # Install Prey dependencies.
     ```
 
-6. Log out and log back in for Docker to work without sudo.
+7. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 

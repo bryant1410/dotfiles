@@ -207,7 +207,7 @@ if [ -d $NVM_PATH ]; then
   . "$NVM_PATH/bash_completion"
 fi
 
-NPM_GLOBAL_PATH=~/.npm_global
+NPM_GLOBAL_PATH=~/.npm-global
 if [ -d $NPM_GLOBAL_PATH ]; then
   export PATH=$NPM_GLOBAL_PATH/bin:$PATH
 fi

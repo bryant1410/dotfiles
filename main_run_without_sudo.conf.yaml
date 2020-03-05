@@ -2,3 +2,4 @@
     - [DC_PATH=~/.local/bin/docker-compose && curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o "$DC_PATH" && chmod +x "$DC_PATH", Installing Docker Compose]
     - ['cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.$(uname -m)" | tar xzf -', Installing Dropbox]
     - [location=~/.local/share/fonts && mkdir -p "$location" && wget 'https://download.jetbrains.com/fonts/JetBrainsMono-1.0.2.zip' -O temp.zip && unzip temp.zip -d "$location" && rm temp.zip && fc-cache -fv, Installing JetBrains Mono font]
+    - [npm install --global github-email, Installing github-email]

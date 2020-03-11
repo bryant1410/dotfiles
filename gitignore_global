@@ -32,6 +32,10 @@
 .~lock*
 Thumbs.db
 __pycache__/
+bazel-bin
+bazel-genfiles
+bazel-out
+bazel-testlogs
 local.properties
 node_modules/
 slurm-*.out

@@ -110,7 +110,7 @@
     # Can't set the release to latest for some because the download asset has the version name in it.
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/keeweb/keeweb/releases/download/v1.12.3/KeeWeb-1.12.3.linux.x64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing KeeWeb]
     - [apt --fix-broken -y install, Installing KeeWeb dependencies]
-    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/cli/cli/releases/download/v0.5.7/gh_0.5.7_linux_386.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing gh]
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/cli/cli/releases/download/v0.6.1/gh_0.6.1_linux_386.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing gh]
     - [apt --fix-broken -y install, Installing gh dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
     - [apt --fix-broken -y install, Installing Google Chrome dependencies]

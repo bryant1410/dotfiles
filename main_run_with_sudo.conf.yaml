@@ -118,6 +118,8 @@
     - [apt --fix-broken -y install, Installing Google Chrome dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/KryDos/todoist-linux/releases/download/1.19/Todoist_1.19.0_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Todoist]
     - [apt --fix-broken -y install, Installing Todoist dependencies]
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://d11yldzmag5yn.cloudfront.net/prod/3.5.361976.0301/zoom_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Zoom]
+    - [apt --fix-broken -y install, Installing Zoom dependencies]
 
 - shell:
     - [snap install --classic android-studio, Installing Android Studio]

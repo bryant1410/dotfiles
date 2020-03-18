@@ -56,6 +56,7 @@
     - hunspell-en-us
     - hyphen-en-us
     - init
+    - jq
     - keyboard-configuration
     - language-pack-en
     - language-pack-en-base

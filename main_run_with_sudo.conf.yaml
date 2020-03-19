@@ -82,6 +82,7 @@
     - mythes-en-us
     - ncurses-base
     - ncurses-bin
+    - net-tools
     - network-manager-openconnect-gnome
     - os-prober
     - pciutils

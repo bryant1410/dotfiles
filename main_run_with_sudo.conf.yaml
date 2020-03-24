@@ -93,6 +93,7 @@
     - qemu-kvm
     - shellcheck
     - shim-signed
+    - sshuttle
     - telegram-desktop
     - texlive*
     - tk-dev

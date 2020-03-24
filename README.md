@@ -59,7 +59,14 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
     sudo apt --fix-broken -y install  # Install Prey dependencies.
     ```
 
-7. Log out and log back in for Docker to work without sudo.
+7. Symlink `Pictures` to `Dropbox/Pictures`:
+
+    ```bash
+    rmdir ~/Pictures/
+    ln -s Dropbox/Pictures ~/Pictures
+    ```
+
+8. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 

@@ -1,21 +1,21 @@
 [user]
-	name = Santiago Castro
+    name = Santiago Castro
 [push]
-	default = simple
+    default = simple
 [credential]
-	helper = cache
+    helper = cache
 [core]
     autocrlf = input
-	editor = vim
-	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
-	tool = meld
+    tool = meld
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [submodule]
     recurse = true
 [alias]

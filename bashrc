@@ -143,7 +143,7 @@ if command -v powerline-go > /dev/null; then
   function _update_ps1() {
     # All default modules but hg because it gets extremely slow in Great Lakes and I don't use it.
     # It's probably due to https://stackoverflow.com/a/3562651/1165181
-    PS1="$(powerline-go -module "venv,user,host,ssh,cwd,perms,git,jobs,exit,root" -newline -error $?)"
+    PS1="$(powerline-go -modules "venv,user,host,ssh,cwd,perms,git,jobs,exit,root" -newline -error $?)"
   }
 
   if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then

@@ -36,6 +36,7 @@ bazel-bin
 bazel-genfiles
 bazel-out
 bazel-testlogs
+condaenv.*.requirements.txt
 local.properties
 node_modules/
 slurm-*.out

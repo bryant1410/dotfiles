@@ -34,39 +34,41 @@ sudo ./install -p dotbot-apt-get/aptget.py -c main_run_with_sudo.conf.yaml
 
 #### Post-installation Steps
 
-1. Run the following to finish the Docker installation:
+1. Steam may be shown as it failed because it actually is waiting for a user to continue from some GUI.
+
+2. Run the following to finish the Docker installation:
 
     ```bash
     sudo usermod -aG docker $USER
     ```
 
-2. Run the following to finish the Dropbox installation:
+3. Run the following to finish the Dropbox installation:
 
     ```bash
     ~/.dropbox-dist/dropboxd
     ```
 
-3. Set "JetBrains Mono Regular" as the font for the system Terminal, Sublime, VS Code, and Guake. Enable the font ligatures wherever possible.
+4. Set "JetBrains Mono Regular" as the font for the system Terminal, Sublime, VS Code, and Guake. Enable the font ligatures wherever possible.
 
-4. Enable settings sync in the JetBrains IDEs.
+5. Enable settings sync in the JetBrains IDEs.
 
-5. Add Guake to the list of Startup Applications.
+6. Add Guake to the list of Startup Applications.
 
-6. Install and set up Prey:
+7. Install and set up Prey:
 
     ```bash
     TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.2/prey_1.9.2_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
     sudo apt --fix-broken -y install  # Install Prey dependencies.
     ```
 
-7. Symlink `Pictures` to `Dropbox/Pictures`:
+8. Symlink `Pictures` to `Dropbox/Pictures`:
 
     ```bash
     rmdir ~/Pictures/
     ln -s Dropbox/Pictures ~/Pictures
     ```
 
-8. Log out and log back in for Docker to work without sudo.
+9. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 

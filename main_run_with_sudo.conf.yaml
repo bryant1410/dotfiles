@@ -65,6 +65,7 @@
     - libbz2-dev
     - libdebconfclient0
     - libffi-dev
+    - libgl1-mesa-glx:i386  # For Steam
     - liblzma-dev
     - libncurses5-dev
     - libpulse-dev

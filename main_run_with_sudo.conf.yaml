@@ -111,6 +111,7 @@
 
 - shell:
     # Can't set the release to latest for some because the download asset has the version name in it.
+    # Can't use a bash aux function to install a DEB file from an URL because it's not available in sudo. Also the user needs to reload bash after ./install for it to be available.
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://swdl.bluejeans.com/desktop-app/linux/2.1.0/BlueJeans.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing BlueJeans]
     - [apt --fix-broken -y install, Installing BlueJeans dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/keeweb/keeweb/releases/download/v1.12.3/KeeWeb-1.12.3.linux.x64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing KeeWeb]
@@ -119,6 +120,8 @@
     - [apt --fix-broken -y install, Installing gh dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
     - [apt --fix-broken -y install, Installing Google Chrome dependencies]
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Steam]
+    - [apt --fix-broken -y install, Installing Steam dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://github.com/KryDos/todoist-linux/releases/download/1.19/Todoist_1.19.0_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Todoist]
     - [apt --fix-broken -y install, Installing Todoist dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://d11yldzmag5yn.cloudfront.net/prod/3.5.361976.0301/zoom_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Zoom]

@@ -131,6 +131,7 @@
 - shell:
     - [snap install --classic android-studio, Installing Android Studio]
     - [snap install --classic clion, Installing CLion]
+    - [snap install discord, Installing Discord]
     - [snap install --classic goland, Installing GoLand]
     - [snap install --classic intellij-idea-ultimate, Installing IntelliJ IDEA Ultimate]
     - [snap install musescore, Installing Musescore]

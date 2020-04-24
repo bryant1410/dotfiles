@@ -34,7 +34,7 @@
     # Prefer installing poetry without Pip, because some computers don't have a system-wide pip.
     # Also, I prefer to run this fork, otherwise I can't deactivate the option to modify the PATH in ~/.profile.
     - ["curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/134c457cb8868b3d490809ef0c89999b34ee68d0/get-poetry.py' | python - --no-modify-path", Installing Poetry]
-    - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go@v1.16.1, Installing powerline-go]
+    - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go@v1.17.0, Installing powerline-go]
     - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
     - ["curl -s 'https://get.sdkman.io' | bash", Installing SDKMAN!]
 

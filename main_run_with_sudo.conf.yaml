@@ -11,7 +11,7 @@
 
 - shell:
     - ['curl https://bazel.build/bazel-release.pub.gpg | apt-key add -; echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list', Adding Bazel's APT repository]
-    - ['if ! grep docker /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && add-apt-repository --no-update "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"; fi', Adding Docker's APT repository]
+    - ['if ! grep docker /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && UBUNTU_VERSION=$(lsb_release -cs) && add-apt-repository --no-update "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${UBUNTU_VERSION/focal/eoan} stable"; fi', Adding Docker's APT repository]
 
 - apt-get:
     - aptitude  # To check the high-level installed packages.

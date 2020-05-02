@@ -97,7 +97,7 @@
     - shim-signed
     - sshuttle
     - telegram-desktop
-    - texlive*
+    - texlive-full
     - tk-dev
     - tmux
     - tree

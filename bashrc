@@ -227,6 +227,7 @@ if [ -d $NPM_GLOBAL_PATH ]; then
 fi
 
 export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
 
 SDKMAN_DIR="/home/sacastro/.sdkman"
 if [ -d $SDKMAN_DIR ]; then

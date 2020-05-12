@@ -28,6 +28,8 @@ cd dotfiles
 ./install
 ```
 
+This is specialized on Linux, but may also work in other \*nix envs.
+
 ### Main Computer
 
 These are additional steps for a computer I actively use (a "main" one), has Ubuntu and I have sudo access. It requires Python 3.5+. Run:
@@ -36,6 +38,8 @@ These are additional steps for a computer I actively use (a "main" one), has Ubu
 sudo ./install -p dotbot-apt/apt.py -c main_run_with_sudo.conf.yaml
 ./install -c main_run_without_sudo.conf.yaml
 ```
+
+This is specialized on Ubuntu.
 
 #### Post-installation Steps
 

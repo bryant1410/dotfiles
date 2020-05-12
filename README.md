@@ -11,6 +11,12 @@ It uses [dotbot](https://github.com/anishathalye/dotbot).
 * Python and Pip
 * Wget
 
+You can install them in Ubuntu 20.04 with:
+
+```bash
+sudo apt install curl git python-is-python3 python3 wget
+```
+
 ## Installation
 
 First check the existing dotfiles in the system home directory and delete them. Then:

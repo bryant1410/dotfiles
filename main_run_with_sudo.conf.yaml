@@ -138,6 +138,7 @@
     - [snap install --classic goland, Installing GoLand]
     - [snap install --classic intellij-idea-ultimate, Installing IntelliJ IDEA Ultimate]
     - [snap install musescore, Installing Musescore]
+    - [snap install --classic node --channel 12, Installing Node.js 12 (latest LTS)]
     - [snap install pdftk, Installing pdftk]
     - [snap install --classic pycharm-professional, Installing PyCharm Professional]
     - [snap install --classic rubymine, Installing RubyMine]

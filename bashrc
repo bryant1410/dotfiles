@@ -131,6 +131,11 @@ fi
 
 ### Below it's what I've added.
 
+BASHRC_PRE_LOCAL=~/.bashrc_pre.local
+if [ -f $BASHRC_PRE_LOCAL ]; then
+  . $BASHRC_PRE_LOCAL
+fi
+
 dcleanup() {
   docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
   docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null

@@ -176,10 +176,10 @@ elif command -v powerline-shell > /dev/null; then
   fi
 fi
 
-PYENV_PATH=${PYENV_PATH:-~/.pyenv}
-if [ -d $PYENV_PATH ]; then
-  export PYENV_PATH
-  export PATH=$PYENV_PATH/bin:$PATH
+PYENV_ROOT=${PYENV_ROOT:-~/.pyenv}
+if [ -d $PYENV_ROOT ]; then
+  # `PYENV_ROOT` is gonna be imported by pyenv.
+  export PATH=$PYENV_ROOT/bin:$PATH
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 

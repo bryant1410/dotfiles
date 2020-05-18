@@ -176,10 +176,9 @@ elif command -v powerline-shell > /dev/null; then
   fi
 fi
 
-if [ -z PYENV_PATH ]; then
-  PYENV_PATH=~/.pyenv
-then
+PYENV_PATH=${PYENV_PATH:-~/.pyenv}
 if [ -d $PYENV_PATH ]; then
+  export PYENV_PATH
   export PATH=$PYENV_PATH/bin:$PATH
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"

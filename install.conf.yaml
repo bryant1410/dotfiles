@@ -35,7 +35,7 @@
     # Also, I prefer to run this fork, otherwise I can't deactivate the option to modify the PATH in ~/.profile.
     - ["curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/134c457cb8868b3d490809ef0c89999b34ee68d0/get-poetry.py' | python - --no-modify-path", Installing Poetry]
     - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go, Installing powerline-go]
-    - ["if ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
+    - ["if [ -z PYENV_ROOT ] || ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
     - ["curl -s 'https://get.sdkman.io' | bash", Installing SDKMAN!]
 
 - link:

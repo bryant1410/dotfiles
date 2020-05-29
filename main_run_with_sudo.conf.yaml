@@ -50,6 +50,7 @@
     - gstreamer1.0-pocketsphinx
     - gstreamer1.0-qt5
     - guake
+    - gwenview
     - gzip
     - hostname
     - htop

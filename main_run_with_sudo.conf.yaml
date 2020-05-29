@@ -141,6 +141,7 @@
     - [snap install musescore, Installing Musescore]
     - [snap install --classic node --channel 12, Installing Node.js 12 (latest LTS)]
     - [snap install pdftk, Installing pdftk]
+    - [snap install postman, Installing Postman]
     - [snap install --classic pycharm-professional, Installing PyCharm Professional]
     - [snap install --classic rubymine, Installing RubyMine]
     - [snap install --classic skype, Installing Skype]

@@ -189,7 +189,22 @@ if [ -d $PYENV_ROOT ]; then
   export PIPENV_IGNORE_VIRTUALENVS=0
 
   # See https://github.com/pyenv/pyenv/issues/688
-  export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+  export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1                                 
+                                                                                
+  CONDA_PATH=$PYENV_ROOT/versions/miniconda3-latest                            
+  if [ -d $CONDA_PATH ]; then                                                  
+    __conda_setup="$('$CONDA_PATH/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then                                                      
+      eval "$__conda_setup"                                                    
+    else                                                                       
+      if [ -f "$CONDA_PATH/etc/profile.d/conda.sh" ]; then                     
+        . "$CONDA_PATH/etc/profile.d/conda.sh"                                 
+      else                                                                     
+        export PATH="$CONDA_PATH/bin:$PATH"                                    
+      fi                                                                       
+    fi                                                                         
+    unset __conda_setup                                                        
+  fi
 fi
 
 POETRY_PATH=~/.poetry

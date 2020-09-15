@@ -81,6 +81,7 @@
     - make
     - mlocate
     - mokutil
+    - mosh
     - mythes-en-us
     - ncurses-base
     - ncurses-bin

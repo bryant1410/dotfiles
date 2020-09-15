@@ -95,6 +95,7 @@
     - python3-pip
     - python3-venv
     - qemu-kvm
+    - rclone
     - shellcheck
     - shim-signed
     - sshuttle

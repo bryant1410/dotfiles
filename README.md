@@ -77,7 +77,16 @@ This is specialized on Ubuntu.
     ln -s Dropbox/Pictures ~/Pictures
     ```
 
-9. Log out and log back in for Docker to work without sudo.
+9. Symlink the Sublime user packages to the ones in `Dropbox/Sublime` (see more in https://stackoverflow.com/a/11399206/1165181):
+
+    ```bash
+    rm -rf ~/.config/sublime-text-3/Packages/User
+    ln -s ~/Dropbox/Sublime/Packages/User ~/.config/sublime-text-3/Packages/User
+    ```
+
+10. Make Calibre use the library in `Dropbox/Calibre`.
+
+11. Log out and log back in for Docker to work without sudo.
 
 ## About the Git Configuration
 

@@ -125,6 +125,12 @@
     - [apt --fix-broken -y install, Installing gh dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
     - [apt --fix-broken -y install, Installing Google Chrome dependencies]
+    # Mendeley depends on Python 2, but actually works with Python 3.
+    # The DEB package ends up depending on `python-is-python2`, which is incompatible with `python-is-python3`.
+    # If installed, the latter would also be uninstalled, and the command `python` would point to Python 2, breaking some things across the board.
+    # So I modify the package on the fly to change its dependency.
+    - ['TEMP_DEB=$(mktemp) && TEMP_DIR=$(mktemp -d) && NEW_TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" "https://www.mendeley.com/repositories/ubuntu/stable/amd64/mendeleydesktop-latest" && dpkg-deb -R "$TEMP_DEB" "$TEMP_DIR" && sed -i "s/python/python3/" "$TEMP_DIR/DEBIAN/control" && dpkg-deb -b "$TEMP_DIR" "$NEW_TEMP_DEB" && dpkg --skip-same-version -i "$NEW_TEMP_DEB" && rm -rf "$TEMP_DEB" "$TEMP_DIR" "$NEW_TEMP_DEB"', Installing Mendeley]
+    - [apt --fix-broken -y install, Installing Mendeley dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Steam]
     - [apt --fix-broken -y install, Installing Steam dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing TeamViewer]

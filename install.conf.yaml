@@ -24,10 +24,10 @@
     - [touch ~/.gitconfig, Creating the local git config file]
 
 - shell:
-    - ["GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl -sSL 'https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz' | tar -xz -C ~; mv ~/go $GOROOT; fi", Installing Go]
+    - ['GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl -sSL "https://dl.google.com/go/$(curl https://golang.org/VERSION?m=text).linux-amd64.tar.gz" | tar -xz -C ~; mv ~/go $GOROOT; fi', Installing Go]
 
 - shell:
-    - ["curl -sSL 'https://github.com/dandavison/delta/releases/download/0.1.1/delta-0.1.1-x86_64-unknown-linux-musl.tar.gz' | tar -xz -C /tmp; mv /tmp/delta-*/delta ~/.local/bin/", Installing delta]
+    - ['curl -sSL $(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "http.*x86_64-unknown-linux-gnu\.tar\.gz" | cut -d : -f 2,3 | tr -d \") | tar -xz -C /tmp; mv /tmp/delta-*/delta ~/.local/bin/', Installing delta]
     - ["DSF_PATH=~/repos/diff-so-fancy && if [ -d $DSF_PATH ]; then cd $DSF_PATH && git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]

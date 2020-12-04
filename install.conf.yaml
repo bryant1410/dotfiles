@@ -27,12 +27,12 @@
     - ['GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl -sSL "https://dl.google.com/go/$(curl https://golang.org/VERSION?m=text).linux-amd64.tar.gz" | tar -xz -C ~; mv ~/go $GOROOT; fi', Installing Go]
 
 - shell:
-    - ['curl -sSL $(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "http.*x86_64-unknown-linux-gnu\.tar\.gz" | cut -d : -f 2,3 | tr -d \") | tar -xz -C /tmp; mv /tmp/delta-*/delta ~/.local/bin/', Installing delta]
+    - ['TEMP_DIR=$(mktemp -d) && curl -sSL $(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "http.*x86_64-unknown-linux-gnu\.tar\.gz" | cut -d : -f 2,3 | tr -d \") | tar -xz -C "$TEMP_DIR" && mv "$TEMP_DIR/delta-"*"/delta" ~/.local/bin/ && rm -rf "$TEMP_DIR"', Installing delta]
     - ["DSF_PATH=~/repos/diff-so-fancy && if [ -d $DSF_PATH ]; then cd $DSF_PATH && git pull; else git clone https://github.com/so-fancy/diff-so-fancy $DSF_PATH; fi", Installing diff-so-fancy]
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
     # Prefer installing poetry without Pip, because some computers don't have a system-wide pip.
-    - ["curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py' | python3 - --no-modify-path", Installing Poetry]
+    - ["curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py' | python - --no-modify-path", Installing Poetry]
     - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && GO111MODULE=on go get -u github.com/justjanne/powerline-go, Installing powerline-go]
     - ["if [ -z PYENV_ROOT ] && ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
     - ["curl -sSL 'https://get.sdkman.io' | bash", Installing SDKMAN!]

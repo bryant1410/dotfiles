@@ -36,9 +36,11 @@
     - e2fsprogs
     - findutils
     - firefox
+    - flatpak
     - fonts-firacode
     - fonts-indic
     - git
+    - gnome-software-plugin-flatpak
     - gparted
     - grep
     - grub-common
@@ -159,3 +161,9 @@
     - [snap install --classic sublime-text, Installing Sublime]
     - [snap install --classic code, Installing VSCode]
     - [snap install --classic webstorm, Installing WebStorm]
+
+- shell:
+    - ['flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo', Adding the Flathub repository to Flatpak]
+
+- shell:
+    - [flatpak install flathub com.toggl.TogglDesktop, Installing Toggl Desktop]

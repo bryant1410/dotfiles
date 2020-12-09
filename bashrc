@@ -256,6 +256,8 @@ if [ -d $SDKMAN_DIR ]; then
   [[ -s "/home/sacastro/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sacastro/.sdkman/bin/sdkman-init.sh"
 fi
 
+export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS
+
 BASHRC_LOCAL=~/.bashrc.local
 if [ -f $BASHRC_LOCAL ]; then
   . $BASHRC_LOCAL

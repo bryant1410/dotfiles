@@ -37,6 +37,7 @@ bazel-genfiles
 bazel-out
 bazel-testlogs
 condaenv.*.requirements.txt
+lightning_logs/
 local.properties
 node_modules/
 slurm-*.out

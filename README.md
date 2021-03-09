@@ -9,13 +9,13 @@ It uses [dotbot](https://github.com/anishathalye/dotbot).
 * cURL
 * Git
 * Python and Pip
-* unzip (for SDKMAN!)
 * Wget
+* zip and unzip (for SDKMAN!)
 
 You can install them in Ubuntu 20.04 with:
 
 ```bash
-sudo apt install curl git python-is-python3 python3 unzip wget
+sudo apt install curl git python-is-python3 python3 unzip wget zip
 ```
 
 ## Installation

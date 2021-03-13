@@ -1,6 +1,6 @@
 - shell:
     - [DC_PATH=~/.local/bin/docker-compose && curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o "$DC_PATH" && chmod +x "$DC_PATH", Installing Docker Compose]
     - ['cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.$(uname -m)" | tar xzf -', Installing Dropbox]
-    - ['location=~/.local/share/fonts && mkdir -p "$location" && TEMP_FILE=$(mktemp) && wget $(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \") -O "$TEMP_FILE" && unzip "$TEMP_FILE" -d "$location" && rm "$TEMP_FILE" && fc-cache -f', Installing JetBrains Mono font]
+    - ['location=~/.local/share/fonts && mkdir -p "$location" && TEMP_FILE=$(mktemp) && wget $(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \") -O "$TEMP_FILE" && unzip -o "$TEMP_FILE" -d "$location" && rm "$TEMP_FILE" && fc-cache -f', Installing JetBrains Mono font]
     - [npm install --global github-email, Installing github-email]
     - ['TEMP_DIR=$(mktemp -d) && curl -sSL $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep -o "https://.*/hugo_extended_.*_Linux-64bit.tar.gz") | tar -xz -C "$TEMP_DIR" && mv "$TEMP_DIR/hugo" ~/.local/bin/ && rm -rf "$TEMP_DIR"', Installing Hugo]

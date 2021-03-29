@@ -42,5 +42,6 @@ lightning_logs/
 local.properties
 node_modules/
 slurm-*.out
+wget-log*
 
 !gradle/wrapper/gradle-wrapper.jar

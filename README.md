@@ -92,7 +92,7 @@ This is specialized on Ubuntu.
 12. Set up the local bashrc file:
 
     ```bash
-    ln -s ~/Dropbox/.bashrc.local .bashrc.local
+    ln -s ~/Dropbox/.bashrc.local
     ```
 
 ## About the Git Configuration

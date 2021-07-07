@@ -89,6 +89,12 @@ This is specialized on Ubuntu.
 
 11. Log out and log back in for Docker to work without sudo.
 
+12. Set up the local bashrc file:
+
+    ```bash
+    ln -s ~/Dropbox/.bashrc.local .bashrc.local
+    ```
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

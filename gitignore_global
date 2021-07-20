@@ -37,6 +37,7 @@ bazel-bin
 bazel-genfiles
 bazel-out
 bazel-testlogs
+cmake-build-debug/
 condaenv.*.requirements.txt
 lightning_logs/
 local.properties

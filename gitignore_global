@@ -43,5 +43,6 @@ local.properties
 node_modules/
 slurm-*.out
 wget-log*
+venv/
 
 !gradle/wrapper/gradle-wrapper.jar

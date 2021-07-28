@@ -92,6 +92,7 @@
     - os-prober
     - pciutils
     - poppler-data
+    - pv
     - python-is-python3
     - python3-gpg
     - python3-pip

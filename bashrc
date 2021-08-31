@@ -180,6 +180,7 @@ PYENV_ROOT=${PYENV_ROOT:-~/.pyenv}
 if [ -d $PYENV_ROOT ]; then
   # `PYENV_ROOT` is gonna be imported by pyenv.
   export PATH=$PYENV_ROOT/bin:$PATH
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 

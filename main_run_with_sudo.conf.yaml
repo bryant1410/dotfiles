@@ -170,4 +170,4 @@
     - ['flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo', Adding the Flathub repository to Flatpak]
 
 - shell:
-    - [flatpak install flathub com.toggl.TogglDesktop, Installing Toggl Desktop]
+    - [flatpak install -y flathub com.toggl.TogglDesktop, Installing Toggl Desktop]

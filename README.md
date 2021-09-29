@@ -85,7 +85,7 @@ This is specialized on Ubuntu.
     ln -s ~/Dropbox/Sublime/Packages/User ~/.config/sublime-text-3/Packages/User
     ```
 
-10. Make Calibre use the library in `Dropbox/Calibre`.
+10. Make Calibre use the library in `Dropbox/Calibre Library`.
 
 11. Log out and log back in for Docker to work without sudo.
 

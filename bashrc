@@ -208,9 +208,8 @@ if [ -d $PYENV_ROOT ]; then
   fi
 fi
 
-POETRY_PATH=~/.poetry
-if [ -d $POETRY_PATH ]; then
-  export PATH=$POETRY_PATH/bin:$PATH
+if [ -x "$(command -v poetry)" ]; then
+  source <(poetry completions bash)
 fi
 
 ANDROID_SDK_PATH=~/Android/Sdk

@@ -89,10 +89,11 @@ This is specialized on Ubuntu.
 
 11. Log out and log back in for Docker to work without sudo.
 
-12. Set up the local bashrc file:
+12. Set up the local bashrc and netrc file:
 
     ```bash
     ln -s ~/Dropbox/.bashrc.local
+    ln -s ~/Dropbox/.netrc
     ```
 
 ## About the Git Configuration

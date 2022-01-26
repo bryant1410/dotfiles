@@ -96,6 +96,19 @@ This is specialized on Ubuntu.
     ln -s ~/Dropbox/.netrc
     ```
 
+13. Set up an echo cancellation mic:
+
+    ```bash
+    cat <<EOF | sudo tee /etc/pulse/default.pa
+    .ifexists module-echo-cancel.so
+    load-module module-echo-cancel aec_method=webrtc source_name=echo_cancelled source_properties=device.description=EchoCancelled sink_name=echo_cancelled_sink
+    set-default-source echo_cancelled
+    set-default-sink echo_cancelled_sink
+    .endif
+    EOF
+    pulseaudio -k
+    ```
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

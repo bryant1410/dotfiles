@@ -81,6 +81,7 @@
     - llvm
     - locales
     - make
+    - meld
     - mlocate
     - mokutil
     - mosh

@@ -206,6 +206,10 @@ if [ -d $PYENV_ROOT ]; then
     fi                                                                         
     unset __conda_setup                                                        
   fi
+
+  if [ -f "$CONDA_PATH/etc/profile.d/mamba.sh" ]; then
+    . "$CONDA_PATH/etc/profile.d/mamba.sh"
+  fi
 fi
 
 if [ -x "$(command -v poetry)" ]; then

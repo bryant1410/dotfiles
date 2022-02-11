@@ -205,10 +205,10 @@ if [ -d $PYENV_ROOT ]; then
       fi                                                                       
     fi                                                                         
     unset __conda_setup                                                        
-  fi
 
-  if [ -f "$CONDA_PATH/etc/profile.d/mamba.sh" ]; then
-    . "$CONDA_PATH/etc/profile.d/mamba.sh"
+    if [ -f "$CONDA_PATH/etc/profile.d/mamba.sh" ]; then
+      . "$CONDA_PATH/etc/profile.d/mamba.sh"
+    fi
   fi
 fi
 

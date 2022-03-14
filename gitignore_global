@@ -14,6 +14,7 @@
 *.lprof
 *.orig
 *.out # Though it could be an expected stdout file for a lab task test from the classes P2 or P3, Fing, UdelaR, Uruguay.
+*.pdf
 *.pkl
 *.pstat
 *.py[cod]

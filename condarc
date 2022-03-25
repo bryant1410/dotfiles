@@ -1,2 +1,3 @@
 report_errors: true
 pip_interop_enabled: true
+experimental_solver: libmamba

@@ -1,6 +1,6 @@
 # Santiago's dotfiles
 
-These are my dotfiles.
+These are my dotfiles and specific computer configuration steps. Feel free to borrow what you find useful, but consider many steps are tailored to me.
 
 It uses [dotbot](https://github.com/anishathalye/dotbot).
 
@@ -107,6 +107,12 @@ This is specialized on Ubuntu.
     .endif
     EOF
     pulseaudio -k
+    ```
+
+14. Add the following to `~/.ssh/config` to include some common SSH configs:
+
+    ```bash
+    Include ~/Dropbox/ssh_config
     ```
 
 ## About the Git Configuration

@@ -111,7 +111,7 @@ This is specialized on Ubuntu.
 
 14. Add the following to `~/.ssh/config` to include some common SSH configs:
 
-    ```bash
+    ```ssh-config
     Include ~/Dropbox/ssh_config
     ```
 

@@ -24,7 +24,7 @@
     - [touch ~/.gitconfig, Creating the local git config file]
 
 - shell:
-    - ['GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl -sSL "https://dl.google.com/go/$(curl https://golang.org/VERSION?m=text).linux-amd64.tar.gz" | tar -xz -C ~; mv ~/go $GOROOT; fi', Installing Go]
+    - ['GOROOT=~/.goroot && if ! [ -d $GOROOT ]; then curl -sSL "https://dl.google.com/go/$(curl -sSL https://go.dev/VERSION?m=text).linux-amd64.tar.gz" | tar -xz -C ~; mv ~/go $GOROOT; fi', Installing Go]
 
 - shell:
     - ['TEMP_DIR=$(mktemp -d) && curl -sSL $(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "http.*x86_64-unknown-linux-gnu\.tar\.gz" | cut -d : -f 2,3 | tr -d \") | tar -xz -C "$TEMP_DIR" && mv "$TEMP_DIR/delta-"*"/delta" ~/.local/bin/ && rm -rf "$TEMP_DIR"', Installing delta]

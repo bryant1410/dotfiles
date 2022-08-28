@@ -1,3 +1,3 @@
-init.author.name=Santiago Castro
+init-author-name=Santiago Castro
 scripts-prepend-node-path=true
 prefix=~/.npm-global

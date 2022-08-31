@@ -32,7 +32,7 @@
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
     # Prefer installing poetry without Pip, because some computers don't have a system-wide pip.
-    - ["curl -sSL 'https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py' | python", Installing Poetry]
+    - ["curl -sSL https://install.python-poetry.org | python3 -", Installing Poetry]
     - [GOROOT=~/.goroot GOPATH=~/go && PATH=$GOROOT/bin:$PATH && go install github.com/justjanne/powerline-go@latest, Installing powerline-go]
     - ["if [ -z PYENV_ROOT ] && ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
     - ["curl -sSL 'https://get.sdkman.io' | bash", Installing SDKMAN!]

@@ -212,9 +212,10 @@ if [ -d $PYENV_ROOT ]; then
   fi
 fi
 
-if [ -x "$(command -v poetry)" ]; then
-  source <(poetry completions bash)
-fi
+# It's currently broken. See https://github.com/python-poetry/poetry/issues/4572
+#if [ -x "$(command -v poetry)" ]; then
+  # source <(poetry completions bash)
+#fi
 
 ANDROID_SDK_PATH=~/Android/Sdk
 if [ -d $ANDROID_SDK_PATH ]; then

@@ -99,7 +99,7 @@ This is specialized on Ubuntu.
 13. Set up an echo cancellation mic:
 
     ```bash
-    cat <<EOF | sudo tee /etc/pulse/default.pa
+    cat <<EOF | sudo tee -a /etc/pulse/default.pa
     .ifexists module-echo-cancel.so
     load-module module-echo-cancel aec_method=webrtc source_name=echo_cancelled source_properties=device.description=EchoCancelled sink_name=echo_cancelled_sink
     set-default-source echo_cancelled

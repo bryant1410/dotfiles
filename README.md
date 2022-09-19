@@ -115,6 +115,8 @@ This is specialized on Ubuntu.
     Include ~/Dropbox/ssh_config
     ```
 
+15. [Free the key binding <kbd>Ctrl + .</kbd> so it can be used by IntelliJ.](https://askubuntu.com/a/1404462/342057)
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

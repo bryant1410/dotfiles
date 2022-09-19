@@ -9,6 +9,8 @@
     editor = vim
     excludesfile = ~/.gitignore_global
     pager = delta | less --tabs=4 -RFX
+[init]
+    defaultBranch = main
 [interactive]
     diffFilter = delta --color-only
 [merge]

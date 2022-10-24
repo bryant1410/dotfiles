@@ -136,7 +136,7 @@
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
     - [apt --fix-broken -y install, Installing Google Chrome dependencies]
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" "https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US" && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing Microsoft Teams]
-    - [apt --fix-broken -y install, Installing Microsoft Teams]
+    - [apt --fix-broken -y install, Installing Microsoft Teams dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Steam]
     - [apt --fix-broken -y install, Installing Steam dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing TeamViewer]

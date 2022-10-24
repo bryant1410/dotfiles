@@ -117,6 +117,8 @@ This is specialized on Ubuntu.
 
 15. [Free the key binding <kbd>Ctrl + .</kbd> so it can be used by IntelliJ.](https://askubuntu.com/a/1404462/342057)
 
+16. Mendeley app (and any other AppImage Electron app) may have a problem with detecting the GPU on sandbox mode. Modify Mendeley's desktop link (located under a path like `~/.local/share/applications/appimagekit_113745347684e95417b93e5a7c4f2967-mendeley-reference-manager.desktop`) to run with the flag `--no-sandbox`.
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

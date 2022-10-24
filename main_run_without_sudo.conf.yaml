@@ -5,3 +5,4 @@
     - ['location=~/.local/share/fonts && mkdir -p "$location" && TEMP_FILE=$(mktemp) && wget $(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \") -O "$TEMP_FILE" && unzip -o "$TEMP_FILE" -d "$location" && rm "$TEMP_FILE" && fc-cache -f', Installing JetBrains Mono font]
     - [npm install --global github-email, Installing github-email]
     - ['TEMP_DIR=$(mktemp -d) && curl -sSL $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep -o "https://.*/hugo_extended_.*_Linux-64bit.tar.gz") | tar -xz -C "$TEMP_DIR" && mv "$TEMP_DIR/hugo" ~/.local/bin/ && rm -rf "$TEMP_DIR"', Installing Hugo]
+    - ['wget -O /tmp/mendeley.AppImage $(curl -s "https://www.mendeley.com/download-reference-manager/linux" | grep -oP "http[^\"]+\.AppImage") && ail-cli integrate /tmp/mendeley.AppImage', Installing Mendeley Reference Manager for Desktop]

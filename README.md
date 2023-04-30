@@ -107,6 +107,7 @@ This is specialized on Ubuntu.
     .endif
     EOF
     pulseaudio -k
+    sudo addgroup $USER audio  # To load the config at boot time.
     ```
 
 14. Add the following to `~/.ssh/config` to include some common SSH configs:

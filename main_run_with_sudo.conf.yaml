@@ -23,6 +23,7 @@
     - bazel
     - bridge-utils
     - build-essential
+    - bwm-ng
     - calibre
     - cmake
     - console-setup
@@ -61,6 +62,7 @@
     - hunspell-en-us
     - hyphen-en-us
     - init
+    - iotop-c
     - jq
     - keyboard-configuration
     - language-pack-en

@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Run the following file if available, even in non-interactive sessions.
+BASHRC_RUN_ALWAYS=~/.bashrc.run_always
+if [ -f $BASHRC_RUN_ALWAYS ]; then
+  . $BASHRC_RUN_ALWAYS
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

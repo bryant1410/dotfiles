@@ -31,8 +31,6 @@ cd dotfiles
 
 This is specialized on Linux, but may also work in other \*nix envs.
 
-For Ubuntu 19.10 and earlier or Debian 10 and earlier, `delta` doesn't work. See [how to fix it](https://github.com/dandavison/delta/issues/504#issuecomment-1164600484).
-
 ### Main Computer
 
 These are additional steps for a computer I actively use (a "main" one), has Ubuntu and I have sudo access. It requires Python 3.5+. Run:

@@ -122,6 +122,8 @@ This is specialized on Ubuntu.
 
 17. [Set up the SSH keys for GitHub.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
+18. [Test WebGL on Chrome](https://webglsamples.org/aquarium/aquarium.html) (you should get 50-60 FPS). If not, [force hardware-accelerated rendering in Google Chrome](https://askubuntu.com/questions/299345/how-to-enable-webgl-in-chrome-on-ubuntu).
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

@@ -13,6 +13,7 @@
 - shell:
     - ['curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /usr/share/keyrings/bazel.gpg; echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list', Adding Bazel's APT repository]
     - ['if ! grep "\.docker\.com" /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor > /usr/share/keyrings/docker.gpg && UBUNTU_VERSION=$(lsb_release -cs) && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $UBUNTU_VERSION stable" > /etc/apt/sources.list.d/docker.list; fi', Adding Docker's APT repository]
+    - ['curl -o- https://deb.packages.mattermost.com/setup-repo.sh | bash', Adding Mattermost's desktop APT repository]
 
 - apt:
     - appimagelauncher

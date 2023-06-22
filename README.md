@@ -124,6 +124,8 @@ This is specialized on Ubuntu.
 
 18. [Test WebGL on Chrome](https://webglsamples.org/aquarium/aquarium.html) (you should get 50-60 FPS). If not, [force hardware-accelerated rendering in Google Chrome](https://askubuntu.com/questions/299345/how-to-enable-webgl-in-chrome-on-ubuntu).
 
+19. [Allow ImageMagick to write PDFs.](https://stackoverflow.com/a/53180170/1165181)
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

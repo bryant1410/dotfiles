@@ -1,6 +1,5 @@
 - shell:
     - [/usr/bin/pip3 install --user arxiv-latex-cleaner, Installing arxiv_latex_cleaner]
-    - [DC_PATH=~/.local/bin/docker-compose && curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o "$DC_PATH" && chmod +x "$DC_PATH", Installing Docker Compose]
     - ['cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.$(uname -m)" | tar xzf -', Installing Dropbox]
     - ['location=~/.local/share/fonts && mkdir -p "$location" && TEMP_FILE=$(mktemp) && wget $(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \") -O "$TEMP_FILE" && unzip -o "$TEMP_FILE" -d "$location" && rm "$TEMP_FILE" && fc-cache -f', Installing JetBrains Mono font]
     - [npm install --global github-email, Installing github-email]

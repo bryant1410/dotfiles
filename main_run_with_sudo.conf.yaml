@@ -12,6 +12,7 @@
 
 - shell:
     - ['curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > /usr/share/keyrings/bazel.gpg && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list', Adding Bazel's APT repository]
+    - ['gpg --no-default-keyring --keyring=/usr/share/keyrings/javinator9889-ppa-keyring.gpg --keyserver keyserver.ubuntu.com --recv-keys 08633b4aaaeb49fc && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/javinator9889-ppa-keyring.gpg] https://ppa.javinator9889.com all main" > /etc/apt/sources.list.d/javinator9889-ppa.list', Adding Discord's APT repository]
     - ['if ! grep "\.docker\.com" /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor > /usr/share/keyrings/docker.gpg && UBUNTU_VERSION=$(lsb_release -cs) && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $UBUNTU_VERSION stable" > /etc/apt/sources.list.d/docker.list; fi', Adding Docker's APT repository]
     - ['curl -o- https://deb.packages.mattermost.com/setup-repo.sh | bash', Adding Mattermost's desktop APT repository]
     - ['curl -fsSL https://mirror.mwt.me/my/gpgkey > /etc/apt/keyrings/mwt.asc && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/mwt.asc by-hash=force] https://mirror.mwt.me/my/deb any zoom" > /etc/apt/sources.list.d/mwt.list', Adding mwt's APT repository for Zoom]
@@ -36,6 +37,7 @@
     - dash
     - default-jdk
     - diffutils
+    - discord
     - docker-buildx-plugin
     - docker-compose-plugin
     - docker-ce
@@ -135,8 +137,6 @@
     # Can't use a bash aux function to install a DEB file from an URL because it's not available in sudo. Also the user needs to reload bash after ./install for it to be available.
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s "https://www.bluejeans.com/downloads" | grep -oP "http[^\"]+\.deb") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing BlueJeans]
     - [apt --fix-broken -y install, Installing BlueJeans dependencies]
-    - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" "https://discord.com/api/download?platform=linux&format=deb" && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing Discord]
-    - [apt --fix-broken -y install, Installing Discord dependencies]
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/keeweb/keeweb/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing KeeWeb]
     - [apt --fix-broken -y install, Installing KeeWeb dependencies]
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/cli/cli/releases/latest | grep "browser_download_url.*amd64\.deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing gh]

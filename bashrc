@@ -261,10 +261,10 @@ fi
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-SDKMAN_DIR="/home/sacastro/.sdkman"
+SDKMAN_DIR="$HOME/.sdkman"
 if [ -d $SDKMAN_DIR ]; then
   export SDKMAN_DIR
-  [[ -s "/home/sacastro/.sdkman/bin/sdkman-init.sh" ]] && source "/home/sacastro/.sdkman/bin/sdkman-init.sh"
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 fi
 
 export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS

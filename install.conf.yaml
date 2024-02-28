@@ -18,6 +18,7 @@
     ~/.latexmkrc: latexmkrc
     ~/.npmrc: npmrc
     ~/.profile: profile
+    ~/.rvmrc: rvmrc
     ~/.vimrc: vimrc
 
 - shell:

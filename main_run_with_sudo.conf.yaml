@@ -15,7 +15,7 @@
     - ['gpg --no-default-keyring --keyring=/usr/share/keyrings/javinator9889-ppa-keyring.gpg --keyserver keyserver.ubuntu.com --recv-keys 08633b4aaaeb49fc && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/javinator9889-ppa-keyring.gpg] https://ppa.javinator9889.com all main" > /etc/apt/sources.list.d/javinator9889-ppa.list', Adding Discord's APT repository]
     - ['if ! grep "\.docker\.com" /etc/apt/sources.list /etc/apt/sources.list.d/*; then curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor > /usr/share/keyrings/docker.gpg && UBUNTU_VERSION=$(lsb_release -cs) && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $UBUNTU_VERSION stable" > /etc/apt/sources.list.d/docker.list; fi', Adding Docker's APT repository]
     - ['curl -o- https://deb.packages.mattermost.com/setup-repo.sh | bash', Adding Mattermost's desktop APT repository]
-    - ['curl -fsSL https://mirror.mwt.me/my/gpgkey > /etc/apt/keyrings/mwt.asc && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/mwt.asc by-hash=force] https://mirror.mwt.me/my/deb any zoom" > /etc/apt/sources.list.d/mwt.list', Adding mwt's APT repository for Zoom]
+    - ['curl -fsSL https://mirror.mwt.me/zoom/gpgkey > /etc/apt/keyrings/mwt.asc && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/mwt.asc by-hash=force] https://mirror.mwt.me/zoom/deb any main" > /etc/apt/sources.list.d/mwt.list', Adding mwt's APT repository for Zoom]
 
 - apt:
     - appimagelauncher

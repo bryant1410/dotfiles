@@ -159,7 +159,7 @@ install_deb_from_url() {
 }
 
 GOROOT=~/.goroot
-GOPATH=~/go
+GOPATH=~/.go
 if [ -d $GOROOT ]; then
   export GOROOT
   export GOPATH

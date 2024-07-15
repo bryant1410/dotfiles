@@ -47,57 +47,47 @@ This is specialized on Ubuntu.
 
 1. Steam may be shown as it failed because it actually is waiting for a user to continue from some GUI.
 
-2. Run the following to finish the Docker installation:
+2. A Dropbox-related window may appear. Follow its steps to finish Dropbox's installation.
 
-    ```bash
-    sudo usermod -aG docker $USER
-    ```
+3. Set "JetBrains Mono Regular" as the font for the system Terminal, Sublime, VS Code, and Guake. Enable the font ligatures wherever possible.
 
-3. Run the following to finish the Dropbox installation:
+4. Enable settings sync in the JetBrains IDEs.
 
-    ```bash
-    ~/.dropbox-dist/dropboxd
-    ```
+5. Add Guake to the list of Startup Applications.
 
-4. Set "JetBrains Mono Regular" as the font for the system Terminal, Sublime, VS Code, and Guake. Enable the font ligatures wherever possible.
-
-5. Enable settings sync in the JetBrains IDEs.
-
-6. Add Guake to the list of Startup Applications.
-
-7. Install and set up Prey:
+6. Install and set up Prey:
 
     ```bash
     TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.9/prey_1.9.9_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
     sudo apt --fix-broken -y install  # Install Prey dependencies.
     ```
 
-8. Symlink `Pictures` to `Dropbox/Pictures`:
+7. Symlink `Pictures` to `Dropbox/Pictures`:
 
     ```bash
     rmdir ~/Pictures/
     ln -s Dropbox/Pictures ~/Pictures
     ```
 
-9. Symlink the Sublime user packages to the ones in `Dropbox/Sublime` (see more in https://stackoverflow.com/a/11399206/1165181):
+8. Symlink the Sublime user packages to the ones in `Dropbox/Sublime` (see more in https://stackoverflow.com/a/11399206/1165181):
 
     ```bash
     rm -rf ~/.config/sublime-text/Packages/User
     ln -s ~/Dropbox/Sublime/Packages/User ~/.config/sublime-text/Packages/User
     ```
 
-10. Make Calibre use the library in `Dropbox/Calibre Library`.
+9. Make Calibre use the library in `Dropbox/Calibre Library`.
 
-11. Log out and log back in for Docker to work without sudo.
+10. Log out and log back in for Docker to work without sudo.
 
-12. Set up the local bashrc and netrc file:
+11. Set up the local bashrc and netrc file:
 
     ```bash
     ln -s ~/Dropbox/.bashrc.local
     ln -s ~/Dropbox/.netrc
     ```
 
-13. Set up an echo cancellation mic:
+12. Set up an echo cancellation mic:
 
     ```bash
     cat <<EOF | sudo tee -a /etc/pulse/default.pa
@@ -111,21 +101,21 @@ This is specialized on Ubuntu.
     sudo addgroup $USER audio  # To load the config at boot time.
     ```
 
-14. Add the following to `~/.ssh/config` to include some common SSH configs:
+13. Add the following to `~/.ssh/config` to include some common SSH configs:
 
     ```ssh-config
     Include ~/Dropbox/ssh_config
     ```
 
-15. [Free the key binding <kbd>Ctrl + .</kbd> so it can be used by IntelliJ.](https://askubuntu.com/a/1404462/342057)
+14. [Free the key binding <kbd>Ctrl + .</kbd> so it can be used by IntelliJ.](https://askubuntu.com/a/1404462/342057)
 
-16. Mendeley app (and any other AppImage Electron app) may have a problem with detecting the GPU on sandbox mode. Modify Mendeley's desktop link (located under a path like `~/.local/share/applications/appimagekit_113745347684e95417b93e5a7c4f2967-mendeley-reference-manager.desktop`) to run with the flag `--no-sandbox`.
+15. Mendeley app (and any other AppImage Electron app) may have a problem with detecting the GPU on sandbox mode. Modify Mendeley's desktop link (located under a path like `~/.local/share/applications/appimagekit_113745347684e95417b93e5a7c4f2967-mendeley-reference-manager.desktop`) to run with the flag `--no-sandbox`.
 
-17. [Set up the SSH keys for GitHub.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+16. [Set up the SSH keys for GitHub.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-18. [Test WebGL on Chrome](https://webglsamples.org/aquarium/aquarium.html) (you should get 50-60 FPS). If not, [force hardware-accelerated rendering in Google Chrome](https://askubuntu.com/questions/299345/how-to-enable-webgl-in-chrome-on-ubuntu).
+17. [Test WebGL on Chrome](https://webglsamples.org/aquarium/aquarium.html) (you should get 50-60 FPS). If not, [force hardware-accelerated rendering in Google Chrome](https://askubuntu.com/questions/299345/how-to-enable-webgl-in-chrome-on-ubuntu).
 
-19. [Allow ImageMagick to write PDFs.](https://stackoverflow.com/a/53180170/1165181)
+18. [Allow ImageMagick to write PDFs.](https://stackoverflow.com/a/53180170/1165181)
 
 ## About the Git Configuration
 

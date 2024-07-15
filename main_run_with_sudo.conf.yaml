@@ -163,7 +163,6 @@
     - [snap install --classic slack, Installing Slack]
     - [snap install spotify, Installing Spotify]
     - [snap install --classic sublime-text, Installing Sublime]
-    - [snap install --classic teleconsole, Installing Teleconsole]
     - [snap install --classic code, Installing VSCode]
     - [snap install --classic webstorm, Installing WebStorm]
 

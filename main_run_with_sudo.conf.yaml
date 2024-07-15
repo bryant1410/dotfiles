@@ -113,7 +113,7 @@
     - python3-gpg
     - python3-pip
     - python3-venv
-    - qemu-kvm
+    - qemu-system-x86
     - rclone
     - shellcheck
     - shim-signed

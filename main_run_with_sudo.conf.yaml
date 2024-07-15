@@ -136,8 +136,6 @@
 - shell:
     # Can't set the release to latest for some because the download asset has the version name in it.
     # Can't use a bash aux function to install a DEB file from an URL because it's not available in sudo. Also the user needs to reload bash after ./install for it to be available.
-    - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s "https://www.bluejeans.com/downloads" | grep -oP "http[^\"]+\.deb") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing BlueJeans]
-    - [apt --fix-broken -y install, Installing BlueJeans dependencies]
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/keeweb/keeweb/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing KeeWeb]
     - [apt --fix-broken -y install, Installing KeeWeb dependencies]
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/cli/cli/releases/latest | grep "browser_download_url.*amd64\.deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing gh]

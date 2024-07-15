@@ -23,8 +23,9 @@ sudo apt install curl git python-is-python3 python3 unzip wget zip
 First check the existing dotfiles in the system home directory and delete them. Then:
 
 ```bash
+cd ~
 git clone --recurse-submodules https://github.com/bryant1410/dotfiles
-cd dotfiles
+cd .dotfiles
 
 ./install
 ```

@@ -103,10 +103,12 @@ This is specialized on Ubuntu.
     sudo addgroup $USER audio  # To load the config at boot time.
     ```
 
-13. Add the following to `~/.ssh/config` to include some common SSH configs:
+13. Run the following to include some common SSH configs:
 
-    ```ssh-config
-    Include ~/Dropbox/ssh_config
+    ```bash
+    if ! grep -q 'Include ~/Dropbox/ssh_config' ~/.ssh/config; then
+        echo Include ~/Dropbox/ssh_config >> ~/.ssh/config
+    fi
     ```
 
 14. [Free the key binding <kbd>Ctrl + .</kbd> so it can be used by IntelliJ.](https://askubuntu.com/a/1404462/342057)

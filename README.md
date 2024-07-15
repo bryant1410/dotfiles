@@ -83,8 +83,10 @@ This is specialized on Ubuntu.
 11. Set up the local bashrc and netrc file:
 
     ```bash
+    pushd ~
     ln -s ~/Dropbox/.bashrc.local
     ln -s ~/Dropbox/.netrc
+    popd
     ```
 
 12. Set up an echo cancellation mic:

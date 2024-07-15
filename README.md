@@ -107,7 +107,7 @@ This is specialized on Ubuntu.
 
     ```bash
     if ! grep -q 'Include ~/Dropbox/ssh_config' ~/.ssh/config; then
-        echo Include ~/Dropbox/ssh_config >> ~/.ssh/config
+        echo 'Include ~/Dropbox/ssh_config' >> ~/.ssh/config
     fi
     ```
 

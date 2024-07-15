@@ -58,7 +58,7 @@ This is specialized on Ubuntu.
 6. Install and set up Prey:
 
     ```bash
-    TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.9.9/prey_1.9.9_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
+    TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://downloads.preyproject.com/prey-client-releases/node-client/1.12.10/prey_1.12.10_amd64.deb' && sudo dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"
     sudo apt --fix-broken -y install  # Install Prey dependencies.
     ```
 

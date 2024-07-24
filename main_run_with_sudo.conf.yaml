@@ -159,7 +159,6 @@
     - [snap install postman, Installing Postman]
     - [snap install --classic pycharm-professional, Installing PyCharm Professional]
     - [snap install --classic rubymine, Installing RubyMine]
-    - [snap install --classic skype, Installing Skype]
     - [snap install --classic slack, Installing Slack]
     - [snap install spotify, Installing Spotify]
     - [snap install --classic sublime-text, Installing Sublime]

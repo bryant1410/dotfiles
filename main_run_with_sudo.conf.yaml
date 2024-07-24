@@ -150,20 +150,8 @@
     - [apt --fix-broken -y install, Installing Todoist dependencies]
 
 - shell:
-    - [snap install --classic android-studio, Installing Android Studio]
-    - [snap install --classic clion, Installing CLion]
-    - [snap install --classic goland, Installing GoLand]
-    - [snap install --classic intellij-idea-ultimate, Installing IntelliJ IDEA Ultimate]
-    - [snap install musescore, Installing Musescore]
-    - [snap install --classic node --channel 12, Installing Node.js 12 (latest LTS)]
-    - [snap install postman, Installing Postman]
-    - [snap install --classic pycharm-professional, Installing PyCharm Professional]
-    - [snap install --classic rubymine, Installing RubyMine]
-    - [snap install --classic slack, Installing Slack]
-    - [snap install spotify, Installing Spotify]
-    - [snap install --classic sublime-text, Installing Sublime]
-    - [snap install --classic code, Installing VSCode]
-    - [snap install --classic webstorm, Installing WebStorm]
+    - [snap install musescore postman spotify, 'Installing Musescore, Postman, and Spotify']
+    - [snap install --classic android-studio clion goland intellij-idea-ultimate node pycharm-professional rubymine slack sublime-text code webstorm, 'Installing in classic mode Android Studio, CLion, GoLand, IntelliJ IDEA Ultimate, Node.js, Pycharm Professional, RubyMine, Slack, Sublime, VSCode, and WebStorm']
 
 - shell:
     - ['flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo', Adding the Flathub repository to Flatpak]

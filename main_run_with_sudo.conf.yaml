@@ -149,9 +149,32 @@
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/KryDos/todoist-linux/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing Todoist]
     - [apt --fix-broken -y install, Installing Todoist dependencies]
 
-- shell:
-    - [snap install musescore postman spotify, 'Installing Musescore, Postman, and Spotify']
-    - [snap install --classic android-studio clion goland intellij-idea-ultimate node pycharm-professional rubymine slack sublime-text code webstorm, 'Installing in classic mode Android Studio, CLion, GoLand, IntelliJ IDEA Ultimate, Node.js, Pycharm Professional, RubyMine, Slack, Sublime, VSCode, and WebStorm']
+- snap:
+    - android-studio:
+        classic: true
+    - clion:
+        classic: true
+    - code:
+        classic: true
+    - goland:
+        classic: true
+    - intellij-idea-ultimate:
+        classic: true
+    - musescore
+    - node:
+        classic: true
+    - postman
+    - pycharm-professional:
+        classic: true
+    - rubymine:
+        classic: true
+    - slack:
+        classic: true
+    - spotify
+    - sublime-text:
+        classic: true
+    - webstorm:
+        classic: true
 
 - shell:
     - ['flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo', Adding the Flathub repository to Flatpak]

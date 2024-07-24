@@ -4,3 +4,6 @@
 [submodule "dotbot-apt"]
 	path = dotbot-apt
 	url = https://github.com/bryant1410/dotbot-apt
+[submodule "dotbot-snap"]
+	path = dotbot-snap
+	url = https://github.com/DrDynamic/dotbot-snap.git

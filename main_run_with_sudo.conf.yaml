@@ -1,6 +1,7 @@
 - shell:
     - [add-apt-repository universe, Enabling the Universe APT repository]
     - [add-apt-repository ppa:appimagelauncher-team/stable, Add the AppImageLauncher APT PPA repository]
+    - [add-apt-repository ppa:jgmath2000/et, Add the Eternal Terminal APT PPA repository]
 
 # Dependencies to install Docker repository and package.
 - apt:
@@ -44,6 +45,7 @@
     - docker-ce-cli
     - dos2unix
     - e2fsprogs
+    - et
     - findutils
     - firefox
     - flatpak

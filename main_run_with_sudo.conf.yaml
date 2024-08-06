@@ -108,6 +108,7 @@
     - os-prober
     - pciutils
     - pdftk
+    - pipx
     - poppler-data
     - pv
     - python-is-python3

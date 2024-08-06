@@ -32,4 +32,4 @@
     - ['TEMP_DIR=$(mktemp -d) && curl -sSL $(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "http.*x86_64-unknown-linux-musl\.tar\.gz" | cut -d : -f 2,3 | tr -d \") | tar -xz -C "$TEMP_DIR" && mv "$TEMP_DIR/delta-"*"/delta" ~/.local/bin/ && rm -rf "$TEMP_DIR"', Installing delta]
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - [GOROOT=~/.goroot GOPATH=~/.go && PATH=$GOROOT/bin:$PATH && go install github.com/justjanne/powerline-go@latest, Installing powerline-go]
-    - ["if [ -z PYENV_ROOT ] && ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
+    - ["if [ -z PYENV_ROOT ] || ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]

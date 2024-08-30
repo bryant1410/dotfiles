@@ -29,6 +29,7 @@
     - btop
     - build-essential
     - bwm-ng
+    - cabextract
     - calibre
     - cmake
     - console-setup

@@ -10,6 +10,7 @@
     - [flatpak install flathub com.elsevier.MendeleyDesktop, Installing Mendeley Reference Manager for Desktop]
     - [pipx install poetry, Installing Poetry]
     - ["curl -sSL 'https://get.sdkman.io' | bash", Installing SDKMAN!]
+    - [flatpak install flathub dev.vencord.Vesktop, Installing Vesktop]
 
 - link:
     ~/.local/bin/globusconnect: ~/.globusconnectpersonal/globusconnect

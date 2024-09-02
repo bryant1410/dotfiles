@@ -5,7 +5,7 @@
     - [pipx install arxiv-latex-cleaner, Installing arxiv_latex_cleaner]
     - ['bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"', Installing JetBrains Mono font]
     - [npm install --global github-email, Installing github-email]
-    - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
+    - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]
     - ['TEMP_DIR=$(mktemp -d) && curl -sSL $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep -o "https://.*/hugo_extended_.*_Linux-64bit.tar.gz") | tar -xz -C "$TEMP_DIR" && mv "$TEMP_DIR/hugo" ~/.local/bin/ && rm -rf "$TEMP_DIR"', Installing Hugo]
     - ['wget -O /tmp/mendeley.AppImage $(curl -s "https://www.mendeley.com/download-reference-manager/linux" | grep -oP "http[^\"]+\.AppImage") && ail-cli integrate /tmp/mendeley.AppImage', Installing Mendeley Reference Manager for Desktop]
     - ["curl -sSL https://install.python-poetry.org | python3 -", Installing Poetry]

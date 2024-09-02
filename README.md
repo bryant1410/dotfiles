@@ -89,7 +89,7 @@ This is specialized on Ubuntu.
     popd
     ```
 
-12. Set up an echo cancellation mic:
+12. Set up an echo cancellation mic for PulseAudio:
 
     ```bash
     cat <<EOF | sudo tee -a /etc/pulse/default.pa
@@ -102,6 +102,8 @@ This is specialized on Ubuntu.
     pulseaudio -k
     sudo addgroup $USER audio  # To load the config at boot time.
     ```
+
+    If using PipeWire, follow the steps to install [NoiseTorch](https://github.com/noisetorch/NoiseTorch?tab=readme-ov-file#download--install).
 
 13. Run the following to include some common SSH configs:
 

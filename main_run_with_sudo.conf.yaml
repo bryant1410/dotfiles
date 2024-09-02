@@ -1,6 +1,5 @@
 - shell:
     - [add-apt-repository universe, Enabling the Universe APT repository]
-    - [add-apt-repository ppa:appimagelauncher-team/stable, Add the AppImageLauncher APT PPA repository]
     - [add-apt-repository ppa:jgmath2000/et, Add the Eternal Terminal APT PPA repository]
 
 # Dependencies to install Docker repository and package.
@@ -19,7 +18,6 @@
     - ['curl -fsSL https://mirror.mwt.me/zoom/gpgkey > /etc/apt/keyrings/mwt.asc && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/mwt.asc by-hash=force] https://mirror.mwt.me/zoom/deb any main" > /etc/apt/sources.list.d/mwt.list', Adding mwt's APT repository for Zoom]
 
 - apt:
-    - appimagelauncher
     - aptitude  # To check the high-level installed packages.
     - aspell-en
     - aspell-es

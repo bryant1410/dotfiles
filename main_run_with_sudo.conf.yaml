@@ -144,7 +144,7 @@
     - [apt --fix-broken -y install, Installing gh dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]
     - [apt --fix-broken -y install, Installing Google Chrome dependencies]
-    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://repo.steampowered.com/steam/archive/precise/steam_latest.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Steam]
+    - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://cdn.akamai.steamstatic.com/client/installer/steam.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Steam]
     - [apt --fix-broken -y install, Installing Steam dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing TeamViewer]
     - [apt --fix-broken -y install, Installing TeamViewer dependencies]

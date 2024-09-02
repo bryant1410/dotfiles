@@ -81,7 +81,6 @@
     - libbz2-dev
     - libdebconfclient0
     - libffi-dev
-    - libgl1-mesa-glx:i386  # For Steam
     - liblzma-dev
     - libncurses5-dev
     - libpulse-dev
@@ -95,9 +94,7 @@
     - locales
     - make
     - meld
-    - mlocate
     - mokutil
-    - mosh
     - mythes-en-us
     - nautilus-dropbox
     - ncurses-base
@@ -120,7 +117,6 @@
     - shellcheck
     - shim-signed
     - sshuttle
-    - telegram-desktop
     - texlive-full
     - tk-dev
     - tmux
@@ -130,7 +126,6 @@
     - vim
     - wamerican
     - wbritish
-    - wireshark-qt
     - xclip
     - xz-utils
     - zlib1g-dev
@@ -175,5 +170,6 @@
     - spotify
     - sublime-text:
         classic: true
+    - telegram-desktop
     - webstorm:
         classic: true

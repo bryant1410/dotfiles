@@ -115,13 +115,11 @@ This is specialized on Ubuntu.
 
 14. [Free the key binding <kbd>Ctrl + .</kbd> so it can be used by IntelliJ.](https://askubuntu.com/a/1404462/342057)
 
-15. Mendeley app (and any other AppImage Electron app) may have a problem with detecting the GPU on sandbox mode. Modify Mendeley's desktop link (located under a path like `~/.local/share/applications/appimagekit_113745347684e95417b93e5a7c4f2967-mendeley-reference-manager.desktop`) to run with the flag `--no-sandbox`.
+15. [Set up the SSH keys for GitHub.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-16. [Set up the SSH keys for GitHub.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+16. [Test WebGL on Chrome](https://webglsamples.org/aquarium/aquarium.html) (you should get 50-60 FPS). If not, [force hardware-accelerated rendering in Google Chrome](https://askubuntu.com/questions/299345/how-to-enable-webgl-in-chrome-on-ubuntu).
 
-17. [Test WebGL on Chrome](https://webglsamples.org/aquarium/aquarium.html) (you should get 50-60 FPS). If not, [force hardware-accelerated rendering in Google Chrome](https://askubuntu.com/questions/299345/how-to-enable-webgl-in-chrome-on-ubuntu).
-
-18. [Allow ImageMagick to write PDFs.](https://stackoverflow.com/a/53180170/1165181)
+17. [Allow ImageMagick to write PDFs.](https://stackoverflow.com/a/53180170/1165181)
 
 ## About the Git Configuration
 

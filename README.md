@@ -12,7 +12,7 @@ It uses [dotbot](https://github.com/anishathalye/dotbot).
 * Wget
 * zip and unzip (for SDKMAN!)
 
-You can install them in Ubuntu 22.04 with:
+You can install them in Ubuntu 24.04 with:
 
 ```bash
 sudo apt install curl git python-is-python3 python3 unzip wget zip

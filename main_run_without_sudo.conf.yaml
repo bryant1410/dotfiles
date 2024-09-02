@@ -1,5 +1,8 @@
 - shell:
-    - [/usr/bin/pip3 install --user arxiv-latex-cleaner, Installing arxiv_latex_cleaner]
+    - ['flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo', Adding the Flathub repository to Flatpak]
+
+- shell:
+    - [pipx install arxiv-latex-cleaner, Installing arxiv_latex_cleaner]
     - ['bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"', Installing JetBrains Mono font]
     - [npm install --global github-email, Installing github-email]
     - ["if ! [ -d ~/.globusconnectpersonal ]; then wget -qO- 'https://downloads.globus.org/globus-connect-personal/v3/linux/stable/globusconnectpersonal-latest.tgz' | tar -xz -C ~ && mv ~/globusconnectpersonal-* ~/.globusconnectpersonal; fi", Installing Globus Connect Personal]

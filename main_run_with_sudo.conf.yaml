@@ -177,6 +177,3 @@
         classic: true
     - webstorm:
         classic: true
-
-- shell:
-    - ['flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo', Adding the Flathub repository to Flatpak]

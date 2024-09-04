@@ -141,8 +141,6 @@
     - [apt --fix-broken -y install, Installing Steam dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing TeamViewer]
     - [apt --fix-broken -y install, Installing TeamViewer dependencies]
-    - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/KryDos/todoist-linux/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing Todoist]
-    - [apt --fix-broken -y install, Installing Todoist dependencies]
 
 - snap:
     - android-studio:
@@ -169,5 +167,6 @@
     - sublime-text:
         classic: true
     - telegram-desktop
+    - todoist
     - webstorm:
         classic: true

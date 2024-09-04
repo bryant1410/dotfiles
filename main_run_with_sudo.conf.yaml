@@ -131,8 +131,7 @@
     - zlib1g-dev
 
 - shell:
-    # Can't set the release to latest for some because the download asset has the version name in it.
-    # Can't use a bash aux function to install a DEB file from an URL because it's not available in sudo. Also the user needs to reload bash after ./install for it to be available.
+    # Can't use a bash aux function to install a DEB file from a URL because it's not available in sudo. Also the user needs to reload bash after ./install for it to be available.
     - ['TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" $(curl -s https://api.github.com/repos/cli/cli/releases/latest | grep "browser_download_url.*amd64\.deb" | cut -d : -f 2,3 | tr -d \") && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB"', Installing gh]
     - [apt --fix-broken -y install, Installing gh dependencies]
     - [TEMP_DEB=$(mktemp) && wget -O "$TEMP_DEB" 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' && dpkg --skip-same-version -i "$TEMP_DEB" && rm -f "$TEMP_DEB", Installing Google Chrome]

@@ -37,7 +37,7 @@ This is specialized on Linux, but may also work in other \*nix envs.
 These are additional steps for a computer I actively use (a "main" one), has Ubuntu and I have sudo access. It requires Python 3.5+. Run:
 
 ```bash
-sudo ./install -p dotbot-apt/apt.py -c main_run_with_sudo.conf.yaml
+sudo ./install -p dotbot-apt/apt.py -p dotbot-snap/snap.py -c main_run_with_sudo.conf.yaml
 ./install -c main_run_without_sudo.conf.yaml
 ```
 

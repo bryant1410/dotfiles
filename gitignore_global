@@ -32,6 +32,7 @@
 .ipynb_checkpoints/
 .python-version
 .venv/
+.vscode/
 .yarnclean
 .~lock*
 Thumbs.db

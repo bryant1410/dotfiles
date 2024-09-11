@@ -52,6 +52,7 @@
     - fonts-indic
     - git
     - git-lfs
+    - gnome-browser-connector
     - gnome-software-plugin-flatpak
     - gparted
     - grep

@@ -94,6 +94,7 @@
     - llvm
     - locales
     - make
+    - mattermost-desktop
     - meld
     - mokutil
     - mythes-en-us

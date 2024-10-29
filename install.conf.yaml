@@ -33,3 +33,4 @@
     - [GIT_OPEN_PATH=~/.local/bin/git-open && wget -O "$GIT_OPEN_PATH" 'https://raw.githubusercontent.com/paulirish/git-open/master/git-open' && chmod +x "$GIT_OPEN_PATH", Installing git-open]
     - [GOROOT=~/.goroot GOPATH=~/.go && PATH=$GOROOT/bin:$PATH && go install github.com/justjanne/powerline-go@latest, Installing powerline-go]
     - ["if [ -z PYENV_ROOT ] || ! [ -d ~/.pyenv ]; then curl https://pyenv.run | bash; fi", Installing pyenv]
+    - [curl -LsSf https://astral.sh/uv/install.sh | sh, Installing uv]

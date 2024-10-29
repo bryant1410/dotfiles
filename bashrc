@@ -273,6 +273,12 @@ fi
 
 export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS
 
+# Cargo is used by uv.
+CARGODIR=~/.cargo/env
+if [ -d $CARGO_DIR ]; then
+  source "$CARGO_DIR"
+fi
+
 BASHRC_LOCAL=~/.bashrc.local
 if [ -f $BASHRC_LOCAL ]; then
   . $BASHRC_LOCAL

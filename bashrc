@@ -279,6 +279,11 @@ if [ -d $CARGO_DIR ]; then
   source "$CARGO_DIR"
 fi
 
+if command -v uv > /dev/null; then
+  eval "$(uv generate-shell-completion bash)"
+  eval "$(uvx --generate-shell-completion bash)"
+fi
+
 BASHRC_LOCAL=~/.bashrc.local
 if [ -f $BASHRC_LOCAL ]; then
   . $BASHRC_LOCAL

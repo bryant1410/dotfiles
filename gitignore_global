@@ -31,6 +31,7 @@
 .idea/
 .ipynb_checkpoints/
 .python-version
+.tox/
 .venv/
 .vscode/
 .yarnclean

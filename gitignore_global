@@ -30,6 +30,7 @@
 .gradle/
 .idea/
 .ipynb_checkpoints/
+.pdm-build/
 .python-version
 .tox/
 .venv/

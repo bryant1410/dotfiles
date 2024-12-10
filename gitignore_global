@@ -32,6 +32,7 @@
 .ipynb_checkpoints/
 .pdm-build/
 .python-version
+.ruff_cache/
 .tox/
 .venv/
 .vscode/

@@ -32,6 +32,14 @@ cd .dotfiles/
 
 This is specialized on Linux, but may also work in other \*nix envs.
 
+### Update the submodules
+
+Run:
+
+```bash
+git submodule foreach git pull origin master
+```
+
 ### Main Computer
 
 These are additional steps for a computer I actively use (a "main" one), has Ubuntu and I have sudo access. It requires Python 3.5+. Run:

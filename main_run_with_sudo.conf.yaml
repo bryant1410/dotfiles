@@ -130,6 +130,7 @@
     - xclip
     - xz-utils
     - zlib1g-dev
+    - zoom
 
 - shell:
     # Can't use a bash aux function to install a DEB file from a URL because it's not available in sudo. Also the user needs to reload bash after ./install for it to be available.

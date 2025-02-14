@@ -147,23 +147,13 @@
     - [apt --fix-broken -y install, Installing TeamViewer dependencies]
 
 - snap:
-    - android-studio:
-        classic: true
-    - clion:
-        classic: true
     - code:
-        classic: true
-    - goland:
-        classic: true
-    - intellij-idea-ultimate:
         classic: true
     - musescore
     - node:
         classic: true
     - postman
     - pycharm-professional:
-        classic: true
-    - rubymine:
         classic: true
     - slack:
         classic: true

@@ -24,6 +24,7 @@
 *.zip
 *~
 .DS_Store
+.claude/settings.local.json
 .cometml-runs/
 .eggs/
 .env

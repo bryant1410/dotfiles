@@ -129,6 +129,12 @@ This is specialized on Ubuntu.
 
 17. [Allow ImageMagick to write PDFs.](https://stackoverflow.com/a/53180170/1165181)
 
+18. [Increase the inotify watches limit](https://youtrack.jetbrains.com/articles/SUPPORT-A-1715/Inotify-Watches-Limit-Linux):
+
+    ```bash
+    echo fs.inotify.max_user_watches = 1048576 | sudo tee /etc/sysctl.d/idea.conf
+    ```
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

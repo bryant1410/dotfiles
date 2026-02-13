@@ -133,6 +133,7 @@ This is specialized on Ubuntu.
 
     ```bash
     echo fs.inotify.max_user_watches = 1048576 | sudo tee /etc/sysctl.d/idea.conf
+    sudo sysctl -p --system
     ```
 
 ## About the Git Configuration

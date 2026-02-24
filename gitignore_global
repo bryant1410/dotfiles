@@ -24,13 +24,15 @@
 *.zip
 *~
 .DS_Store
-.claude/settings.local.json
+.cadence/
+.claude/
 .cometml-runs/
 .eggs/
 .env
 .gradle/
 .idea/
 .ipynb_checkpoints/
+.metaflow/
 .mypy_cache/
 .pdm-build/
 .pytest_cache/
@@ -51,6 +53,7 @@ cmake-build-debug/
 condaenv.*.requirements.txt
 lightning_logs/
 local.properties
+metaflow.s3.*/
 node_modules/
 slurm-*.out
 wget-log*

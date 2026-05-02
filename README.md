@@ -136,6 +136,16 @@ This is specialized on Ubuntu.
     sudo sysctl -p --system
     ```
 
+19. Enable pasting with the mouse's middle click:
+
+    ```bash
+    gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
+    ```
+
+20. [Enable the NTSYNC driver.](https://www.reddit.com/r/linux_gaming/comments/1lxnz0g/lets_get_that_ntsync_stuff_enabled_small_guide/)
+
+21. Enable a system-level key binding for Guake.
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

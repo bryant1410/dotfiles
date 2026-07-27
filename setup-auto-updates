@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+# Enable automatic updates, confined to hours I'm not using the machine.
+# Idempotent; re-run after changing a tunable. See README.md.
+
+set -euo pipefail
+
+[[ $EUID -eq 0 ]] || { echo "Run with sudo." >&2; exit 1; }
+
+APT_DOWNLOAD_AT='02:40'  # metadata refresh + pre-download
+APT_INSTALL_AT='03:00'   # nightly install
+SNAP_WINDOWS='03:00-05:00,12:00-14:00'  # midday is the catch-up; snap set validates this
+
+# --- What to install ---------------------------------------------------------
+# Own file, so dpkg never prompts about a modified 50unattended-upgrades.
+cat > /etc/apt/apt.conf.d/52unattended-upgrades-local <<'EOF'
+// Managed by ~/.dotfiles/setup-auto-updates.
+
+// Ubuntu ships security-only; also take regular updates.
+Unattended-Upgrade::Allowed-Origins:: "${distro_id}:${distro_codename}-updates";
+
+// Pre-download in the quiet window so the install step is short.
+APT::Periodic::Download-Upgradeable-Packages "1";
+
+// Reboots stay manual; canonical-livepatch handles kernel CVEs live.
+Unattended-Upgrade::Automatic-Reboot "false";
+EOF
+
+# --- When to install ---------------------------------------------------------
+# Defaults are 6am, and any hour at all for apt-daily (12h jitter).
+# Persistent=false: a missed run waits for the next night rather than firing at
+# boot, i.e. exactly when I've sat down. The idle job below is the catch-up.
+install -d /etc/systemd/system/apt-daily.timer.d
+cat > /etc/systemd/system/apt-daily.timer.d/override.conf <<EOF
+[Timer]
+OnCalendar=
+OnCalendar=*-*-* ${APT_DOWNLOAD_AT}
+RandomizedDelaySec=20m
+Persistent=false
+EOF
+
+install -d /etc/systemd/system/apt-daily-upgrade.timer.d
+cat > /etc/systemd/system/apt-daily-upgrade.timer.d/override.conf <<EOF
+[Timer]
+OnCalendar=
+OnCalendar=*-*-* ${APT_INSTALL_AT}
+RandomizedDelaySec=30m
+Persistent=false
+EOF
+
+install -d /etc/systemd/system/apt-daily-upgrade.service.d
+cat > /etc/systemd/system/apt-daily-upgrade.service.d/override.conf <<'EOF'
+[Unit]
+ConditionACPower=true
+EOF
+
+# --- Idle catch-up -----------------------------------------------------------
+# For nights the machine was off or the run failed: upgrade at a random idle
+# moment instead of waiting for the next window.
+cat > /usr/local/sbin/apt-idle-upgrade <<'EOF'
+#!/usr/bin/env bash
+# Upgrade only if the desktop is idle and the last run is stale.
+# Driven by apt-idle-upgrade.timer. Managed by ~/.dotfiles/setup-auto-updates.
+set -uo pipefail
+
+STALE_DAYS=2
+IDLE_MIN=20
+STAMP=/var/lib/apt/periodic/unattended-upgrades-stamp
+
+# Don't collide with the nightly run or a manual apt.
+systemctl is-active --quiet apt-daily-upgrade.service && exit 0
+fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 && exit 0
+
+# Ran recently enough? Nothing to do.
+[[ -e $STAMP ]] && (( $(date +%s) - $(stat -c %Y "$STAMP") < STALE_DAYS * 86400 )) && exit 0
+
+# Every graphical session must be idle. GNOME reports idle time in ms; logind's
+# IdleHint is unreliable under Wayland, so ask Mutter directly.
+for bus in /run/user/*/bus; do
+    [[ -S $bus ]] || continue
+    uid=${bus#/run/user/}; uid=${uid%/bus}
+    user=$(id -nu "$uid" 2>/dev/null) || continue
+    idle=$(runuser -u "$user" -- env "DBUS_SESSION_BUS_ADDRESS=unix:path=$bus" \
+        gdbus call --session --dest org.gnome.Mutter.IdleMonitor \
+        --object-path /org/gnome/Mutter/IdleMonitor/Core \
+        --method org.gnome.Mutter.IdleMonitor.GetIdletime 2>/dev/null | tr -dc 0-9)
+    [[ -n ${idle:-} ]] && (( idle < IDLE_MIN * 60000 )) && exit 0
+done
+
+logger -t apt-idle-upgrade "idle and stale; upgrading"
+unattended-upgrade; rc=$?
+# unattended-upgrade alone doesn't touch the stamp (apt.systemd.daily does);
+# without this we'd re-run every 30 min forever.
+touch "$STAMP"
+logger -t apt-idle-upgrade "finished (rc=${rc})"
+exit "$rc"
+EOF
+chmod 755 /usr/local/sbin/apt-idle-upgrade
+
+cat > /etc/systemd/system/apt-idle-upgrade.service <<'EOF'
+[Unit]
+Description=Opportunistic apt upgrade while the desktop is idle
+ConditionACPower=true
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/apt-idle-upgrade
+EOF
+
+cat > /etc/systemd/system/apt-idle-upgrade.timer <<'EOF'
+[Unit]
+Description=Check whether the desktop is idle and updates are stale
+
+[Timer]
+OnBootSec=45min
+OnUnitActiveSec=30min
+RandomizedDelaySec=15m
+Persistent=false
+
+[Install]
+WantedBy=timers.target
+EOF
+
+# --- Apply -------------------------------------------------------------------
+systemctl daemon-reload
+systemctl enable --now apt-idle-upgrade.timer
+
+# Snaps otherwise refresh 4x/day at any hour. No staleness check needed: a
+# refresh with nothing pending is a no-op, so the midday window only does work
+# when the nightly one missed something. refresh-app-awareness (default on)
+# defers running snaps instead of closing them.
+snap set system refresh.timer="$SNAP_WINDOWS"
+
+echo
+systemctl list-timers --all --no-pager 'apt-*'
+snap refresh --time

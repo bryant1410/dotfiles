@@ -146,6 +146,22 @@ This is specialized on Ubuntu.
 
 21. Enable a system-level key binding for Guake.
 
+22. Enable automatic updates, confined to hours I'm not using the machine:
+
+    ```bash
+    sudo ./setup-auto-updates
+    ```
+
+    Ubuntu already installs security updates unattended, but at 6am — and `apt-daily`
+    fires at *any* hour, since its default jitter is 12h. This adds regular `-updates`,
+    moves apt to 03:00, and narrows snaps to 03:00–05:00 plus a midday catch-up (a
+    refresh with nothing pending is a no-op, so midday only acts on what the night
+    missed). Timers use `Persistent=false` so a missed run waits for the next window
+    instead of firing at boot; `apt-idle-upgrade.timer` covers the gap, upgrading at a
+    random moment once the desktop has been idle 20 min and the last run is 2 days old.
+    Reboots stay manual — `canonical-livepatch` handles kernel CVEs live. Tunables are
+    at the top of the script.
+
 ## About the Git Configuration
 
 I save the git config in a 2nd user-specific path (`~/.config/git/config`), so I can override stuff in the local machine (in `~/.gitconfig`), such as the email. 

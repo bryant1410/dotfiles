@@ -2,7 +2,6 @@ onboarding = false
 
 [ui]
 agent_panel_sort = "priority"
-mouse_capture = false
 
 [session]
 # Restore saved workspaces/panes and resume supported agent conversations

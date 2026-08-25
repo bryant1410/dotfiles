@@ -13,6 +13,7 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.config/git/config: gitconfig
+    ~/.config/herdr/config.toml: herdr_config.toml
     ~/.condarc: condarc
     ~/.gitignore_global: gitignore_global
     ~/.latexmkrc: latexmkrc

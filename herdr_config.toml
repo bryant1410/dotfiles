@@ -1,0 +1,15 @@
+onboarding = false
+
+[ui]
+agent_panel_sort = "priority"
+mouse_capture = false
+
+[session]
+# Restore saved workspaces/panes and resume supported agent conversations
+# (Claude-integration panes) when the server starts — e.g. on boot via the
+# herdr.service systemd --user unit. This is herdr's default; set explicitly.
+resume_agents_on_restore = true
+
+[theme]
+name = "catppuccin"
+auto_switch = false

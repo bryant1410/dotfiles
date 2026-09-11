@@ -2,6 +2,14 @@ onboarding = false
 
 [ui]
 agent_panel_sort = "priority"
+sidebar_width = 32        # Set your preferred sidebar width (columns)
+sidebar_min_width = 24    # Prevents it from collapsing too narrow
+
+[ui.sidebar.spaces]
+row_gap = 0               # Compact spacing for the Spaces list
+
+[ui.sidebar.agents]
+row_gap = 0               # Compact spacing for the Agents list
 
 [session]
 # Restore saved workspaces/panes and resume supported agent conversations

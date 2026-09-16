@@ -137,6 +137,10 @@ set -g escape-time 0
 set -gq extended-keys on
 set -gq set-clipboard on
 EOF
+  # tmux only reads its config when the server starts, so an already-running
+  # private server would keep the old behaviour. Apply the title settings to the
+  # live server as well (idempotent, harmless if no server is up yet).
+  tmux -L herdr-remote set -g set-titles on \; set -g set-titles-string '#T' >/dev/null 2>&1 || true
   exec tmux -L herdr-remote -f "$confdir/tmux.conf" new-session -A -s "$session" "$self"
 fi
 

@@ -88,3 +88,12 @@ Revert to stock: `cp herdr-agent-state.v9.pristine.ts ~/.pi/agent/extensions/her
 - `herdr-agent-state.v9.pristine.ts` — exactly what herdr installed (md5 `c5e0582adbba7fba3bcba83b08274a79`)
 - `herdr-agent-state.patched.ts` — the patched extension that gets installed (marker comment `HERDR_PI_PATCH`)
 - `apply.sh` — installer with the pristine/marker check
+
+## Provenance and license
+
+Both `.ts` files here are copies of the Pi integration that herdr itself installs:
+`herdr-agent-state.v9.pristine.ts` is the unmodified file, `herdr-agent-state.patched.ts`
+is that same file with the local patch applied. herdr is public software, licensed
+Apache-2.0 — see <https://herdr.dev> and <https://github.com/ogulcancelik/herdr>
+(a Homebrew formula also exists). The vendored copies remain under Apache-2.0,
+© the herdr authors; this directory is not a redistribution of anything else.

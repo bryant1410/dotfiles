@@ -38,6 +38,10 @@
 #     file) whose prefix is ctrl+a, so herdr keeps ctrl+b. screen's own prefix is
 #     already ctrl+a, so no conflict there either.
 #   * Truecolor passes through both tmux 3.x and screen 5.0.
+#   * herdr's title reaches your terminal: the private tmux config turns on
+#     `set-titles` with `set-titles-string "#T"`, so the outer window shows
+#     herdr's own title. Without it tmux keeps the pane title to itself (its
+#     default is set-titles off) and the outer window keeps whatever it had.
 #   * `herdr --remote-keybindings` defaults to `local`, so the *client's* config
 #     governs your keys — copy herdr_config.toml here if you want your custom
 #     bindings from the server side, or pass --remote-keybindings=server.
@@ -52,7 +56,7 @@ extra="${HERDR_REMOTE_ARGS:-}"
 self="$(readlink -f "$0")"
 confdir="${XDG_RUNTIME_DIR:-/tmp}/herdr-remote-$(id -u)"
 
-usage() { sed -n '2,45p' "$self" | sed 's/^# \{0,1\}//'; }
+usage() { awk 'NR > 1 && /^#/ { sub(/^# ?/, ""); print; next } NR > 1 { exit }' "$self"; }
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -127,6 +131,8 @@ unbind C-b
 bind C-a send-prefix
 set -g window-size latest
 set -g status off
+set -g set-titles on
+set -g set-titles-string "#T"
 set -g escape-time 0
 set -gq extended-keys on
 set -gq set-clipboard on

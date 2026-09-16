@@ -17,6 +17,8 @@
     ~/.condarc: condarc
     ~/.gitignore_global: gitignore_global
     ~/.latexmkrc: latexmkrc
+    ~/.local/bin/herdr-remote: herdr-remote
+    ~/.local/bin/herdr-pi-patch: herdr-pi-integration/apply.sh
     ~/.npmrc: npmrc
     ~/.profile: profile
     ~/.rvmrc: rvmrc

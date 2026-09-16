@@ -1,0 +1,148 @@
+#!/usr/bin/env bash
+# herdr-remote — keep a herdr client attached to a remote server, resiliently.
+#
+# Why this exists: `herdr --remote <target>` is a long-lived TUI client. When the
+# network blips or the terminal goes away, the client process exits — and every
+# new client starts with fresh client-local state (unread badges, focus). This
+# wrapper keeps the client inside a *local* multiplexer session on this machine,
+# so closing the terminal window does not kill it, and restarts it with backoff
+# when the connection really drops.
+#
+# Usage:
+#   herdr-remote                    # target from $HERDR_REMOTE_TARGET
+#   herdr-remote my-box            # explicit SSH target (ssh_config alias or saved machine)
+#   herdr-remote -h                 # this help
+#
+# Environment:
+#   HERDR_REMOTE_TARGET   SSH target for `herdr --remote` (required)
+#   HERDR_REMOTE_MUX      tmux (default) | screen | none | auto
+#                         auto = tmux if installed, else screen, else none
+#   HERDR_REMOTE_SESSION  multiplexer session name (default: herdr)
+#   HERDR_REMOTE_STOP     stop file, checked between retries
+#                         (default: ${XDG_STATE_HOME:-~/.local/state}/herdr/remote-stop)
+#   HERDR_REMOTE_ARGS     extra args appended to the attach, e.g.
+#                         HERDR_REMOTE_ARGS=--remote-keybindings=server
+#
+# Detach / reattach / stop:
+#   tmux:    detach C-a d      reattach tmux -L herdr-remote attach -t herdr
+#   screen:  detach C-a d      reattach screen -A -x herdr
+#   stop the reconnect loop:   touch "$HERDR_REMOTE_STOP"
+#
+# Why tmux is the default (measured, not folklore):
+#   * The herdr client uses mouse reporting (clickable links, transcript
+#     scrollbar, drag-to-select). tmux forwards an application's mouse request
+#     to the outer terminal; screen does not — the request never leaves the
+#     screen session, so mouse-driven herdr features are dead inside screen.
+#   * herdr's default prefix is ctrl+b, which is tmux's default prefix too. This
+#     script runs a *private* tmux server (socket `herdr-remote`, its own config
+#     file) whose prefix is ctrl+a, so herdr keeps ctrl+b. screen's own prefix is
+#     already ctrl+a, so no conflict there either.
+#   * Truecolor passes through both tmux 3.x and screen 5.0.
+#   * `herdr --remote-keybindings` defaults to `local`, so the *client's* config
+#     governs your keys — copy herdr_config.toml here if you want your custom
+#     bindings from the server side, or pass --remote-keybindings=server.
+
+set -uo pipefail
+
+target="${HERDR_REMOTE_TARGET:-}"
+stopfile="${HERDR_REMOTE_STOP:-${XDG_STATE_HOME:-$HOME/.local/state}/herdr/remote-stop}"
+session="${HERDR_REMOTE_SESSION:-herdr}"
+mux="${HERDR_REMOTE_MUX:-tmux}"
+extra="${HERDR_REMOTE_ARGS:-}"
+self="$(readlink -f "$0")"
+confdir="${XDG_RUNTIME_DIR:-/tmp}/herdr-remote-$(id -u)"
+
+usage() { sed -n '2,45p' "$self" | sed 's/^# \{0,1\}//'; }
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -h|--help) usage; exit 0 ;;
+    --mux) mux="${2:-}"; shift 2 ;;
+    --mux=*) mux="${1#*=}"; shift ;;
+    -*) echo "herdr-remote: unknown option: $1" >&2; exit 2 ;;
+    *) target="$1"; shift ;;
+  esac
+done
+
+command -v herdr >/dev/null 2>&1 || { echo "herdr-remote: herdr not found in PATH" >&2; exit 1; }
+
+case "$mux" in
+  auto)
+    if command -v tmux >/dev/null 2>&1; then mux=tmux
+    elif command -v screen >/dev/null 2>&1; then mux=screen
+    else mux=none; fi ;;
+esac
+
+# Already inside a multiplexer (or told not to use one): just run the loop.
+if [ "$mux" = none ] || [ -n "${TMUX:-}" ] || [ -n "${STY:-}" ]; then
+  mux=none
+fi
+
+if [ "$mux" != none ]; then
+  [ -n "$target" ] || { echo "herdr-remote: no target. Pass one, or set HERDR_REMOTE_TARGET (e.g. my-box)." >&2; exit 2; }
+  mkdir -p "$confdir"
+fi
+
+# --- the reconnect loop ------------------------------------------------------
+#
+# `--handoff` is only passed when this herdr supports it: it lets a newer client
+# migrate the remote server live instead of leaving you with the "incompatible
+# server — stop it?" prompt (whose default is No, and whose yes kills panes).
+run_loop() {
+  local handoff="" fails=0
+  if herdr --help 2>&1 | grep -q -- '--handoff'; then handoff=--handoff; fi
+
+  while :; do
+    # shellcheck disable=SC2086
+    herdr --remote "$target" $handoff $extra
+    if [ -e "$stopfile" ]; then
+      rm -f "$stopfile"
+      echo "herdr-remote: stop file seen; exiting."
+      return 0
+    fi
+    fails=$((fails + 1))
+    if [ "$fails" -eq 5 ]; then
+      echo "herdr-remote: 5 consecutive attaches failed — check the SSH/Tailscale output above." >&2
+    fi
+    if [ "$fails" -lt 5 ]; then sleep 2; else sleep 10; fi
+  done
+}
+
+if [ "$mux" = none ]; then
+  run_loop
+  exit $?
+fi
+
+export HERDR_REMOTE_TARGET="$target" HERDR_REMOTE_MUX=none HERDR_REMOTE_SESSION="$session" \
+       HERDR_REMOTE_STOP="$stopfile" HERDR_REMOTE_ARGS="$extra"
+
+if [ "$mux" = tmux ]; then
+  command -v tmux >/dev/null 2>&1 || { echo "herdr-remote: tmux not installed (apt install tmux), or use --mux screen/none" >&2; exit 1; }
+  # Private server + private config: leave the user's own tmux setup untouched.
+  # ctrl+a prefix so herdr's default ctrl+b prefix survives; no status line so
+  # herdr gets the full pane.
+  cat > "$confdir/tmux.conf" <<'EOF'
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+set -g window-size latest
+set -g status off
+set -g escape-time 0
+set -gq extended-keys on
+set -gq set-clipboard on
+EOF
+  exec tmux -L herdr-remote -f "$confdir/tmux.conf" new-session -A -s "$session" "$self"
+fi
+
+# screen fallback (works, minus mouse features — see the header).
+command -v screen >/dev/null 2>&1 || { echo "herdr-remote: screen not installed (apt install screen), or use --mux tmux/none" >&2; exit 1; }
+cat > "$confdir/screenrc" <<'EOF'
+startup_message off
+vbell off
+hardstatus off
+defscrollback 10000
+EOF
+if screen -ls "$session" 2>/dev/null | grep -q "\.$session"; then
+  exec screen -A -x "$session"
+fi
+exec screen -q -A -S "$session" -c "$confdir/screenrc" "$self"

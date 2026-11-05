@@ -6,6 +6,7 @@
 
 - create:
     - ~/.config/git
+    - ~/.config/herdr
     - ~/.local/bin
 
 - link:

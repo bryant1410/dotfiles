@@ -245,6 +245,9 @@ export KAGGLE_USERNAME=bryant1410
 
 RVM_PATH=~/.rvm
 if [ -d $RVM_PATH ]; then
+  # Pre-set GEM_HOME/GEM_PATH so RVM's PATH-mismatch warning doesn't print in non-login shells (e.g. Orca)
+  export GEM_HOME="$RVM_PATH/gems/ruby-2.7.0"
+  export GEM_PATH="$GEM_HOME:$RVM_PATH/gems/ruby-2.7.0@global"
   source "$RVM_PATH/scripts/rvm" # Load RVM into a shell session *as a function*
   export PATH="$PATH:$RVM_PATH/bin"
 fi

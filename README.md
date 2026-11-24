@@ -144,9 +144,7 @@ This is specialized on Ubuntu.
 
 20. [Enable the NTSYNC driver.](https://www.reddit.com/r/linux_gaming/comments/1lxnz0g/lets_get_that_ntsync_stuff_enabled_small_guide/)
 
-21. Enable a system-level key binding for Guake.
-
-22. Enable automatic updates, confined to hours I'm not using the machine:
+21. Enable automatic updates, confined to hours I'm not using the machine:
 
     ```bash
     sudo ./setup-auto-updates

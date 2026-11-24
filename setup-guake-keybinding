@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Bind Pause to show/hide Guake through a GNOME custom shortcut (on Wayland Guake can't grab a
+# global key itself). It calls Guake's D-Bus method directly: `guake-toggle` does the same but
+# starts Python on every press, which adds ~300 ms before the window appears.
+# Idempotent; reuses an existing Guake shortcut instead of adding a second one.
+# Run by main_run_without_sudo.conf.yaml.
+
+set -euo pipefail
+
+BINDING='Pause'
+COMMAND='gdbus call --session --dest org.guake3.RemoteControl --object-path /org/guake3/RemoteControl --method org.guake3.RemoteControl.show_hide'
+
+SCHEMA=org.gnome.settings-daemon.plugins.media-keys
+NEW_PATH=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/
+
+shortcut() { gsettings "$1" "$SCHEMA.custom-keybinding:$2" "${@:3}"; }
+
+paths=$(gsettings get "$SCHEMA" custom-keybindings)
+
+path=
+while IFS= read -r p; do
+  if [[ $(shortcut get "$p" command) == *guake* ]]; then
+    path=$p
+    break
+  fi
+done < <(grep -o "'[^']*'" <<<"$paths" | tr -d "'")
+
+if [[ -z $path ]]; then
+  path=$NEW_PATH
+  if [[ $paths == '@as []' || $paths == '[]' ]]; then
+    gsettings set "$SCHEMA" custom-keybindings "['$path']"
+  else
+    gsettings set "$SCHEMA" custom-keybindings "${paths%]}, '$path']"
+  fi
+fi
+
+shortcut set "$path" name 'Guake'
+shortcut set "$path" command "$COMMAND"
+shortcut set "$path" binding "$BINDING"

@@ -24,6 +24,7 @@
 *.zip
 *~
 .DS_Store
+.bazelbsp/
 .cadence/
 .claude/
 .cometml-runs/

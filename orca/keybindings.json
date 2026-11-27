@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "keybindings": {},
+  "platforms": {
+    "darwin": {},
+    "linux": {
+      "sidebar.right.toggle": ["Mod+Shift+L"]
+    },
+    "win32": {}
+  },
+  "migrations": {
+    "legacySettings": "done"
+  }
+}

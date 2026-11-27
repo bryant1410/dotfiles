@@ -8,6 +8,11 @@
     - ~/.config/git
     - ~/.config/herdr
     - ~/.local/bin
+    - ~/.orca
+
+- shell:
+    # Orca replaces the keybindings symlink with a plain file when a shortcut is edited in its UI; fold that back in first.
+    - [orca/absorb-keybindings, Absorbing Orca shortcut changes]
 
 - link:
     ~/.bash_aliases: bash_aliases
@@ -21,6 +26,7 @@
     ~/.local/bin/herdr-remote: herdr-remote
     ~/.local/bin/herdr-pi-patch: herdr-pi-integration/apply.sh
     ~/.npmrc: npmrc
+    ~/.orca/keybindings.json: orca/keybindings.json
     ~/.profile: profile
     ~/.rvmrc: rvmrc
     ~/.vimrc: vimrc

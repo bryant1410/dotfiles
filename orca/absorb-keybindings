@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""Fold Orca shortcut changes made in its UI back into the dotfiles copy, before ./install re-links it.
+
+Orca saves ~/.orca/keybindings.json by writing a temp file and renaming it over the path, so editing a
+shortcut in Orca's settings replaces our symlink with a plain file. This merges that file into
+orca/keybindings.json (Orca's side wins per action) and removes it so dotbot can link it again.
+A fresh Orca install's default file has no overrides, so merging it changes nothing.
+Caveat: resetting a shortcut to its default in Orca's UI isn't carried over; delete it here instead.
+"""
+import json
+import os
+import sys
+
+home_file = os.path.expanduser("~/.orca/keybindings.json")
+repo_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "keybindings.json")
+
+if not os.path.isfile(home_file) or os.path.islink(home_file):
+    sys.exit(0)  # Missing or still our symlink: nothing to absorb.
+
+with open(home_file) as f:
+    home = json.load(f)
+with open(repo_file) as f:
+    repo = json.load(f)
+
+merged = dict(repo)
+merged["keybindings"] = {**repo.get("keybindings", {}), **home.get("keybindings", {})}
+platforms = {}
+for name in sorted(set(repo.get("platforms", {})) | set(home.get("platforms", {}))):
+    platforms[name] = {**repo.get("platforms", {}).get(name, {}), **home.get("platforms", {}).get(name, {})}
+merged["platforms"] = platforms
+merged["migrations"] = {**repo.get("migrations", {}), **home.get("migrations", {})}
+
+if merged != repo:
+    with open(repo_file, "w") as f:
+        json.dump(merged, f, indent=2)
+        f.write("\n")
+    print(f"Absorbed Orca shortcut changes into {repo_file}")
+os.remove(home_file)
